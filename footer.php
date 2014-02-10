@@ -1,0 +1,1 @@
+<img src="img/footer.png" alt="" width="100%"/>

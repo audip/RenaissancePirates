@@ -1,0 +1,142 @@
+body {
+	background-image:url(../img/body_bg.jpg);
+	font-family: cursive;
+}
+
+.wrapper {
+	background-image:url(../img/bg1.jpg);
+	background-size:cover;
+	width:80%;
+	margin : 0 auto;
+	//margin:1% 5%;
+	height:1400px;
+	
+}
+
+#sidebar {
+	width:20%;
+	float:left;
+	margin-left:5%;
+}
+
+#header {
+	width:100%;
+	margin:20% 5% 0 0;
+	text-align:center;
+}
+
+#leaderboard {
+	//background-image: url('../img/panel_header.png');
+	//background-size: 100% 100%;
+	text-align: center;
+}
+
+#quespanel {
+	//clear:both;
+}
+
+#header li {
+	display:inline;
+	margin: 0px auto;
+
+
+}
+#ques{
+	text-align: center;
+}
+#main_content{
+	width: 50%;
+	float: left;
+}
+#navbar {
+	height:30px;
+	padding-top:20px;
+	padding-left: 0px;
+	text-transform: uppercase;
+}
+
+#home {
+	background-image:url(../img/home.jpg);
+	background-size:100% 100%;
+	margin:0 -7px 0 -6px;
+}
+
+#home a,#profile a,#play a,#rules a,#contacts a {
+	text-decoration:none;
+	color:#705b3b;
+}
+
+#home,#profile,#play,#rules,#contacts {
+	padding: 10px 30px;
+}
+
+#profile {
+	background-image:url(../img/myprofile.jpg);
+	background-size:100% 100%;
+	margin:0 -7px 0 -6px;
+}
+
+#rules {
+	background-image:url(../img/myprofile.jpg);
+	background-size:100% 100%;
+	margin:0 -7px 0 -6px;
+}
+
+#contacts {
+	background-image:url(../img/home.jpg);
+	background-size:100% 100%;
+	margin:0 -7px 0 -6px;
+}
+
+#play {
+	background-image:url(../img/tag.png);
+	background-size:100% 100%;
+	background-origin:padding-box;
+	margin:0 -3px 0 2px;
+	height:200px;
+	padding:15px 45px;
+	//text-shadow: 2px 2px #aaa;
+	//width:150px;
+}
+
+#userdetails {
+	background-image:url(../img/header.png);
+	background-size:100% 100%;
+	height:100px;
+	width:80%;
+	margin: 50px auto 0px auto;
+	padding-left: 0px;
+	padding-top: 1px;
+}
+.bold{
+	font-weight: bold;
+}
+.disguise{
+	cursor: pointer;
+}
+.disguise:hover{
+	cursor: pointer;
+	text-decoration: underline;
+	color: #fff;
+	-webkit-transition: color 1s ease-out;
+}
+#userdetails table {
+	padding-left: 35px;
+	padding-top: 5px;
+	margin: 0px auto;
+	text-align: center;
+	font-variant: small-caps;
+}
+#container{
+	margin: 0px auto;
+	text-align: center;
+	width: 75%;
+	padding: 0px auto;
+}
+footer{
+	clear: both;
+	margin: 0px auto;
+	width: 80%;
+	//margin-bottom: 420px;
+	bottom : -5px;
+}
