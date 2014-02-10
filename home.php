@@ -19,9 +19,9 @@ else
 <head>
     <title>Quiz Home | Eclectika</title>
     <link rel="stylesheet" href="css/style.css" type="text/css">
-    <link rel="stylesheet" href="font-awesome.css" type="text/css"/>
-    <link rel="stylesheet" href="bootstrap.min.css" type="text/css"/>
-    <link rel="stylesheet" href="bootstrap-theme.min.css" type="text/css"/>
+    <link rel="stylesheet" href="font-awesome.css" type="text/css">
+    <link rel="stylesheet" href="bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="bootstrap-theme.min.css" type="text/css">
     <meta charset="UTF-8">
     <meta name="keywords" content="Eclectika 2014, Treasure Hunt, Eclectika, Online Game, Pre-Eclectika Event">
     <meta name="author" content="Aditya Purandare http://plus.google.com/+AdityaPurandare,
@@ -50,40 +50,29 @@ else
         </div>
 
         <div id="container">
-         	<?php include('container.php');
-		 	?>
-         </div>
+            <?php include('container.php');
+?>
+        </div>
 
-        <footer>
-	        	<?php include('footer.php'); ?>
-        </footer>
+        <footer><?php include('footer.php'); ?></footer>
+    </div><script src="src/jquery.js" type="text/javascript">
+</script><script type="text/javascript">
+    (function(){
+            $('button').click(function(e){
+                e.preventDefault();
+                var id=$(this).attr("id");
+                console.log(id);
+                $.ajax({
+                    type: 'GET',
+                    url: 'question.php',
+                    data: 'q='+id,
+                    success: function(data){
+                        if(data != null) $("#main_content").html(data)
+                        }
+                        });
+            });
+        })();
 
-    </div>
+    </script>
 </body>
-  <script src="src/jquery.js"></script>
- <script>
-	//$(".disguise").click(function(){
-	//question.php?q=2
-	//$(".disguise").bind("click",function(){
-	//console.log(this);
-	$("ques").click(function(e){
-		e.preventDefault();
-		id=$(this).attr("id");
-		console.log(id);
-		$.post('question.php', {q:id}, function(data){
-		$("#main_content").html(data);
-	    }
-	});
-    /*
-$.ajax({
-        type: 'GET',
-        url: 'question.php',
-        data: 'q=2',
-        success: function(data){
-                 if(data != null) $("#main_content").html(data)
-         }
-     });
-
-});*/
-</script>
 </html>

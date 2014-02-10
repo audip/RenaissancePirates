@@ -47,7 +47,7 @@ $i=1;
 <form action="home.php" method="POST" style="margin : 100px 0px;">
 <?php
 
-$q=$_POST['q'];
+$q=$_GET['q'];
 require('connect.php');
 $q21="SELECT * FROM questionbank WHERE qno='$q'";
 $r21=mysqli_query($con, $q21);
