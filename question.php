@@ -53,8 +53,10 @@ $q21="SELECT * FROM questionbank WHERE qno='$q'";
 $r21=mysqli_query($con, $q21);
 $row=mysqli_fetch_array($r21);
 $ques=$row['ques'];
-echo '<p>'.$ques;
-echo '<br/>
+echo '<p>
+			<label for="ans" class="capital">'.$row['qdesc'].'</label>
+			<img src="'.$row['image'].'" alt="Eclectika Online Game Image"  width="100%"/>
+            '.$ques.'<br/>	
 			<label for="ans">Key (Answer):</label>
 			<input type="hidden" value='.$q.' name = "qno" />
 			<input type="text" maxlength="50" name="ans" id="ans" required="required"/>
