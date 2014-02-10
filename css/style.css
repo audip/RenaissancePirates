@@ -140,3 +140,47 @@ footer{
 	//margin-bottom: 420px;
 	bottom : -5px;
 }
+#ques td>button{
+	border: 0px;
+	background: transparent;
+	font-style: italic;
+}
+#ques td>button:hover{
+	-webkit-transition:  color 1s ease-out;
+	-moz-transition:  color 1s ease-out;
+       -o-transition: color 1s ease-out;
+      -ms-transition: color 1s ease-out;
+          transition: color 1s ease-out;
+	color:white;
+	font-style: italic;
+	text-decoration: underline;
+}
+#main_content{
+	line-height: 2em;
+}
+/*SHRINK*/
+.shrink img {
+  height: 140px;
+  width: 140px;
+  -webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+       -o-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+          transition: all 1s ease;
+          margin: 0px 25px 0px 25px;
+}
+ 
+.shrink img:hover {
+  width: 130px;
+  height: 130px;
+}
+.contact{
+	width: 80%;
+	margin: 20px auto;
+	padding: 20px 0px;
+	text-align: center;
+}
+.shrink{
+	display: inline-block;
+	margin-left:0px 40px ;
+}

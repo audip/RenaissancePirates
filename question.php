@@ -58,10 +58,8 @@ echo '<br/>
 			<label for="ans">Key (Answer):</label>
 			<input type="hidden" value='.$q.' name = "qno" />
 			<input type="text" maxlength="50" name="ans" id="ans" required="required"/>
-			<input type="submit" value="Submit" name="submit"/>
+			<br/><br/><input type="submit" value="Submit" name="submit"/>
 			</p>';
 			
-
-
 ?>
 </form>

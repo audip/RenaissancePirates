@@ -16,7 +16,7 @@
 		if($row[$qno]=== '0' || $row[$qno]==='1')
 		{echo '<tr>
 						<td class="disguise" data-field='.$i.'>
-						<button id="'.$i.'" class="ques">Question'.$i.'</button>
+						<button id="'.$i.'">Question'.$i.'</button>
 						</td>';
 						if($row[$qno]==='1')
 							echo '<td>&#10003;</td>';

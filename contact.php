@@ -1,25 +1,8 @@
-<?php
-session_start();
-require('connect.php');
-$_SESSION['username']='aditya';
-//echo $_SESSION['username'];
-//die();
-
-if(!isset($_SESSION['username']))
-{
-	header('location:login.php');
-}
-else
-{
-	//Proceed with Game Home
-}
-?>
-
 <html>
 <head>
     <title>Quiz Home | Eclectika</title>
-     <link rel="stylesheet" href="css/normalize.css" type="text/css">
-     <link href="reset.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link rel="stylesheet" href="css/normalize.css" type="text/css">
+    <link href="reset.css" type="text/css" rel="stylesheet" media="screen,projection">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <meta charset="UTF-8">
     <meta name="keywords" content="Eclectika 2014, Treasure Hunt, Eclectika, Online Game, Pre-Eclectika Event">
@@ -45,33 +28,40 @@ else
 <body>
     <div class="wrapper">
         <div id="header" style="float:left">
-            <?php include('header.php');   ?>
+            <ul id="navbar">
+                <li id="home"><a href="home.php">Home</a></li>
+
+                <li id="profile"><a href="profile.php">My Profile</a></li>
+
+                <li id="play"><a href="home.php">Rejoice da Renaissance</a></li>
+
+                <li id="rules"><a href="#">Rules</a></li>
+
+                <li id="contacts"><a href="contact.php">Contacts</a></li>
+            </ul>
+
+            <div id="userdetails">
+                <table width="80%">
+                    <tr>
+                        <td width="20%">&nbsp;</td>
+
+                        <td width="10%">&nbsp;</td>
+
+                        <td width="10%">&nbsp;</td>
+
+                        <td width="20%" align="center">&nbsp;</td>
+                    </tr>
+                </table>
+            </div>
         </div>
 
-        <div id="container">
-            <?php include('container.php');
-?>
+        <div class="contact">
+            <div class="shrink pic"><img src="http://lorempixel.com/400/400/nightlife/4" alt="city"></div>
+
+            <div class="shrink pic"><img src="http://lorempixel.com/400/400/nightlife/4" alt="city"></div>
+
+            <div class="shrink pic"><img src="http://lorempixel.com/400/400/nightlife/4" alt="city"></div>
         </div>
-
-        <footer><?php include('footer.php'); ?></footer>
-    </div><script src="src/jquery.js" type="text/javascript">
-</script><script type="text/javascript">
-    (function(){
-            $('button').click(function(e){
-                e.preventDefault();
-                var id=$(this).attr("id");
-                console.log(id);
-                $.ajax({
-                    type: 'GET',
-                    url: 'question.php',
-                    data: 'q='+id,
-                    success: function(data){
-                        if(data != null) $("#main_content").html(data)
-                        }
-                        });
-            });
-        })();
-
-    </script>
+    </div>
 </body>
 </html>
