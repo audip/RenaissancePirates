@@ -53,9 +53,10 @@ else
         </div>
 
         <footer><?php include('footer.php'); ?></footer>
-    </div><script src="src/jquery.js" type="text/javascript">
-</script><script type="text/javascript">
-    (function(){
+    </div>
+    <script src="src/jquery.js" ></script>
+    <script>
+	    (function(){
             $('button').click(function(e){
                 e.preventDefault();
                 var id=$(this).attr("id");
@@ -70,7 +71,6 @@ else
                         });
             });
         })();
-
     </script>
 </body>
 </html>

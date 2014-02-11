@@ -1,112 +1,6 @@
 <?php
 require_once('solvemedialib.php');
 //require('serverinfo.php');
-if($_POST)
-{
-    $privkey="arSuUTJHqxu1uarsXvuO6UyluliVw9Dq";
-    $hashkey="6CKg17T7.VmCnXxRZ3ARYmCEBP0Oit6-";
-    $solvemedia_response = solvemedia_check_answer($privkey,
-        $_SERVER["REMOTE_ADDR"],
-        $_POST["adcopy_challenge"],
-        $_POST["adcopy_response"],
-        $hashkey);
-    if (!$solvemedia_response->is_valid) {
-        //handle incorrect answer
-        print "Error: ".$solvemedia_response->error;
-    }
-    else {
-        //process form here
-        if(isset($_POST['name'])&&isset($_POST['email'])&&isset($_POST['username'])&&isset($_POST['password'])
-            &&isset($_POST['cpassword'])&&isset($_POST['gender'])&&isset($_POST['college'])&&isset($_POST['branch'])
-            &&isset($_POST['year'])&&isset($_POST['mobile']))
-        {
-            $name=mysqli_real_escape_string($con, $_POST['name']);
-            $email=mysqli_real_escape_string($con, $_POST['email']);
-            $username=mysqli_real_escape_string($con, $_POST['username']);
-            $password=mysqli_real_escape_string($con, $_POST['password']);
-            $cpassword=mysqli_real_escape_string($con, $_POST['cpassword']);
-            $mobile=mysqli_real_escape_string($con, $_POST['mobile']);
-            $gender=mysqli_real_escape_string($con, $_POST['gender']);
-            $college=mysqli_real_escape_string($con, $_POST['college']);
-            $branch=mysqli_real_escape_string($con, $_POST['branch']);
-            $year=mysqli_real_escape_string($con, $_POST['year']);
-            //echo $name.'<br/>'.$email.'<br/>'.$username.'<br/>'.$password.'<br/>'.$cpassword.'<br/>'.$mobile.'<br/>'.$gender.'<br/>'.$college.'<br/>'.$branch.'<br/>'.$year.'<br/>';
-            //die();
-            //FILE UPLOADING CODE STARTS HERE
-            $pic='';
-            $flag=0;
-            if(isset($_FILES["file"]["name"]))
-            {
-                //FILE UPLOADING CODE STARTS HERE
-                $allowedExts = array("gif", "jpeg", "jpg", "png");
-                $temp = explode(".", $_FILES["file"]["name"]);
-                $extension = strtolower(end($temp));
-                if ((($_FILES["file"]["type"] == "image/gif")
-                        || ($_FILES["file"]["type"] == "image/jpeg")
-                        || ($_FILES["file"]["type"] == "image/jpg")
-                        || ($_FILES["file"]["type"] == "image/pjpeg")
-                        || ($_FILES["file"]["type"] == "image/x-png")
-                        || ($_FILES["file"]["type"] == "image/png"))
-                    && ($_FILES["file"]["size"] < 200000)
-                    && in_array($extension, $allowedExts))
-                {
-                    if ($_FILES["file"]["error"] > 0)
-                    {
-                        echo "Return Code: ".$_FILES["file"]["error"]."<br>";
-                    }
-                    else
-                    {
-                        //echo "Upload: ".$_FILES["file"]["name"]."<br>";
-                        //echo "Type: ".$_FILES["file"]["type"]."<br>";
-                        //echo "Size: ".($_FILES["file"]["size"] / 1024)." kB<br>";
-                        //echo "Temp file: ".$_FILES["file"]["tmp_name"]."<br>";
-
-                        if (file_exists("images/".$_FILES["file"]["name"]))
-                        {
-                            echo $_FILES["file"]["name"]." already exists. ";
-                        }
-                        else
-                        {
-                            $s5 = ".";
-                            $img = 'images/'.$username.$s5.$extension;
-                            if(file_exists("images/$img"))
-                                unlink("images/$img");
-                            move_uploaded_file($_FILES["file"]["tmp_name"], $img);
-                            //echo "Stored in: "."images/".$_FILES["file"]["name"];
-
-
-                            $s1 = "UPDATE stuinfo SET pic='$img' WHERE username='$username'";
-                            mysqli_query($con, $s1);
-                            header("location:profile.php");
-                        }
-                    }
-                }
-            }           //echo $name.$email.$username.$password.$cpassword.$gender.$college.$branch.$year;
-            if(!empty($name)&&!empty($email)&&!empty($username)&&!empty($password)
-                &&!empty($cpassword)&&!empty($gender)&&!empty($college)&&!empty($branch)
-                &&!empty($year)&&!empty($mobile))
-            {
-                if($password===$cpassword)
-                {
-                    $otp=uniqid();
-                    $q4="INSERT INTO stuinfo VALUES('','$name','$username','$password','$college','$mobile','$email','$gender','$branch','$year','$pic','$otp')";
-                    //echo $q4;die();
-                    mysqli_query($con, $q4);
-                    if($flag)
-                    {
-                        move_uploaded_file($_FILES["file"]["tmp_name"], $pic);
-                    }
-                    $link='<a href="http://eclectika.org/verify.php?otp='.$otp.'">Verify Email</a>';
-                    echo 'Registration Complete!! Email Verification to start soon..!!';
-                    //echo $link;
-                    //mail();
-                    //header('location:login.php');
-                }
-            }
-
-        }
-    }
-}
 //include the Solve Media library
 ?>
 
@@ -121,6 +15,10 @@ if($_POST)
     .font,p,footer,header,li,h1,h2,h3,h4,h5,h6{
     font-family:Merienda;
     }
+    body{
+        font-family: Merienda, Helvetica Neue, sans-serif;
+        color: white;
+    }
     .wrapper{
     width:100%;
     }
@@ -134,8 +32,7 @@ if($_POST)
     padding:0.1% 0%;
     margin-top:2%;
     font-size:18px;
-    font-family:sans-serif;
-    background-size:cover;  
+    background-size:cover;
     text-align:center;
     background: rgba(0, 0, 0, 0.5);
     }
@@ -150,7 +47,6 @@ if($_POST)
     margin-right:2%;
     margin-top:1%;
     font-size:18px;
-    font-family:sans-serif;
     text-align:left;
     background-color:blue;
     }
@@ -159,8 +55,7 @@ if($_POST)
     width:99%;
     clear:both;
     font-size:18px;
-    font-family:sans-serif;
-    background-size:cover;  
+    background-size:cover;
     text-align:center;
     background: rgba(0, 0, 0, 0.5);
 
@@ -168,7 +63,6 @@ if($_POST)
     .content{
     width:99%;
     font-size:18px;
-    font-family:sans-serif;
     color:white;
     text-align:center;
     }
@@ -179,17 +73,17 @@ if($_POST)
     td{
     color:white;
     }
-	input[type=submit]{
-		background-color: red;
-		border: 0px;
-		padding: 10px 20px; 
-		color: white;
-		font-size: 20px;
-	}
-	input[type=submit]:hover{
-		cursor: pointer;
-		background-color: #cf1111;
-	}
+    input[type=submit]{
+        background-color: red;
+        border: 0px;
+        padding: 10px 20px;
+        color: white;
+        font-size: 20px;
+    }
+    input[type=submit]:hover{
+        cursor: pointer;
+        background-color: #cf1111;
+    }
     /*]]>*/
     </style>
 </head>
@@ -211,8 +105,115 @@ if($_POST)
         </div>
 
         <div id="content" class="content">
-        <h2 style="text-decoration: underline">Signup for Eclectika</h2>
-            <small><em><font color="#e1e1e1">Note : All fields with * are compulsory</font></em></small>
+            <h2 style="text-decoration: underline">Signup for Eclectika</h2><small><em><font color="#E1E1E1">Note : All fields with * are compulsory</font></em></small> <?php
+if($_POST)
+{
+	require('serverinfo.php');
+	$privkey="arSuUTJHqxu1uarsXvuO6UyluliVw9Dq";
+	$hashkey="6CKg17T7.VmCnXxRZ3ARYmCEBP0Oit6-";
+	$solvemedia_response = solvemedia_check_answer($privkey,
+		$_SERVER["REMOTE_ADDR"],
+		$_POST["adcopy_challenge"],
+		$_POST["adcopy_response"],
+		$hashkey);
+	if (!$solvemedia_response->is_valid) {
+		//handle incorrect answer
+		print "<br/>Error: ".$solvemedia_response->error;
+	}
+	else {
+		//process form here
+		if(isset($_POST['name'])&&isset($_POST['email'])&&isset($_POST['username'])&&isset($_POST['password'])
+			&&isset($_POST['cpassword'])&&isset($_POST['gender'])&&isset($_POST['college'])&&isset($_POST['branch'])
+			&&isset($_POST['year'])&&isset($_POST['mobile']))
+		{
+			$name=mysqli_real_escape_string($con, $_POST['name']);
+			$email=mysqli_real_escape_string($con, $_POST['email']);
+			$username=mysqli_real_escape_string($con, $_POST['username']);
+			$password=mysqli_real_escape_string($con, $_POST['password']);
+			$cpassword=mysqli_real_escape_string($con, $_POST['cpassword']);
+			$mobile=mysqli_real_escape_string($con, $_POST['mobile']);
+			$gender=mysqli_real_escape_string($con, $_POST['gender']);
+			$college=mysqli_real_escape_string($con, $_POST['college']);
+			$branch=mysqli_real_escape_string($con, $_POST['branch']);
+			$year=mysqli_real_escape_string($con, $_POST['year']);
+			//echo $name.'<br/>'.$email.'<br/>'.$username.'<br/>'.$password.'<br/>'.$cpassword.'<br/>'.$mobile.'<br/>'.$gender.'<br/>'.$college.'<br/>'.$branch.'<br/>'.$year.'<br/>';
+			//die();
+			//FILE UPLOADING CODE STARTS HERE
+			$pic='';
+			$flag=0;
+			if(isset($_FILES["file"]["name"]))
+			{
+				//FILE UPLOADING CODE STARTS HERE
+				$allowedExts = array("gif", "jpeg", "jpg", "png");
+				$temp = explode(".", $_FILES["file"]["name"]);
+				$extension = strtolower(end($temp));
+				if ((($_FILES["file"]["type"] == "image/gif")
+						|| ($_FILES["file"]["type"] == "image/jpeg")
+						|| ($_FILES["file"]["type"] == "image/jpg")
+						|| ($_FILES["file"]["type"] == "image/pjpeg")
+						|| ($_FILES["file"]["type"] == "image/x-png")
+						|| ($_FILES["file"]["type"] == "image/png"))
+					&& ($_FILES["file"]["size"] < 200000)
+					&& in_array($extension, $allowedExts))
+				{
+					if ($_FILES["file"]["error"] > 0)
+					{
+						echo "Return Code: ".$_FILES["file"]["error"]."<br>";
+					}
+					else
+					{
+						//echo "Upload: ".$_FILES["file"]["name"]."<br>";
+						//echo "Type: ".$_FILES["file"]["type"]."<br>";
+						//echo "Size: ".($_FILES["file"]["size"] / 1024)." kB<br>";
+						//echo "Temp file: ".$_FILES["file"]["tmp_name"]."<br>";
+
+						if (file_exists("images/".$_FILES["file"]["name"]))
+						{
+							echo $_FILES["file"]["name"]." already exists. ";
+						}
+						else
+						{
+							$s5 = ".";
+							$img = 'images/'.$username.$s5.$extension;
+							if(file_exists("images/$img"))
+								unlink("images/$img");
+							move_uploaded_file($_FILES["file"]["tmp_name"], $img);
+							//echo "Stored in: "."images/".$_FILES["file"]["name"];
+
+
+							$s1 = "UPDATE stuinfo SET pic='$img' WHERE username='$username'";
+							mysqli_query($con, $s1);
+							header("location:profile.php");
+						}
+					}
+				}
+			}           //echo $name.$email.$username.$password.$cpassword.$gender.$college.$branch.$year;
+			if(!empty($name)&&!empty($email)&&!empty($username)&&!empty($password)
+				&&!empty($cpassword)&&!empty($gender)&&!empty($college)&&!empty($branch)
+				&&!empty($year)&&!empty($mobile))
+			{
+				if($password===$cpassword)
+				{
+					$otp=uniqid();
+					$q4="INSERT INTO stuinfo VALUES('','$name','$username','$password','$college','$mobile','$email','$gender','$branch','$year','$pic','$otp')";
+					//echo $q4;die();
+					mysqli_query($con, $q4);
+					if($flag)
+					{
+						move_uploaded_file($_FILES["file"]["tmp_name"], $pic);
+					}
+					$link='<a href="http://eclectika.org/verify.php?otp='.$otp.'">Verify Email</a>';
+					echo '<br/>Registration Complete!!';
+					//echo $link;
+					//mail();
+					//header('location:login.php');
+				}
+			}
+
+		}
+	}
+}
+?>
 
             <form action="reg.php" method="post" name="signup">
                 <table cellpadding="5" cellspacing="5" align="center" style="color:#CCC;">
@@ -376,7 +377,7 @@ if($_POST)
 
                     <tr>
                         <td colspan="2"><?php echo solvemedia_get_html("qjmGRXOO9Bq7AfRhBy22ue7pPkcBCGIH"); //outputs the widget
-                        ?></td>
+?></td>
                     </tr>
 
                     <tr>

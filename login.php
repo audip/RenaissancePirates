@@ -29,11 +29,12 @@ if($_POST)
 		{
 			$username=mysqli_real_escape_string($con, $_POST['username']);
 			$password=mysqli_real_escape_string($con, $_POST['password']);
+			$email=$username;
 
 			if(!empty($username)&&!empty($password))
 			{
 				//$password=md5($password);
-				$str="SELECT username, password, id FROM stuinfo WHERE username='$username'";
+				$str="SELECT username, password, id, email FROM stuinfo WHERE username='$username' OR email='$email'";
 				$result = mysqli_query($con, $str);
 				if(mysqli_num_rows($result)==1)
 				{
@@ -42,7 +43,7 @@ if($_POST)
     					exit();
 				}*/
 					$row=mysqli_fetch_array($result);
-					if($username===$row['username'] && $password===$row['password'])
+					if(($username===$row['username'] || $email===$row['email']) && $password===$row['password'])
 					{
 						$_SESSION['username']=$row['username'];
 						$_SESSION['userid']=$row['id'];
@@ -76,7 +77,7 @@ if($_POST)
 				<li id="profile"><a href="profile.php">My Profile</a></li>
 				<li id="play"><a href="home.php">Rejoice da Renaissance</a></li>
 				<li id="rules"><a href="#">Rules</a></li>
-				<li id="contacts"><a href="#">Contacts</a></li>
+				<li id="contacts"><a href="contact.php">Contacts</a></li>
 			</ul>
 			<div id="userdetails">
 				<table width="80%">
@@ -92,9 +93,9 @@ if($_POST)
 		<h1> LOGIN PANEL </h1>
 		<br /> <br />
             <form action="login.php" method="post" id="signin">
-                <table style="border : 2px solid #e0e0e0;">
+                <table>
                     <tr>
-                        <td><strong><label for="username"><sup>*</sup>Username :</label></strong></td>
+                        <td><strong><label for="username"><sup>*</sup>Username/Email :</label></strong></td>
 
                         <td><input type="text" name="username" id="username" size="20" maxlength="30" autofocus="" required="required" tabindex="1" accesskey="u"></td>
 
@@ -102,9 +103,9 @@ if($_POST)
                     </tr>
 
                     <tr>
-                        <td colspan="3"><small><em>Username used to signup for <a href="http://eclectika.org" target="_blank">Eclectika.org</a></em></small></td>
+                        <td colspan="3"><small><em>Username/Email used to signup for <a href="http://eclectika.org" target="_blank">Eclectika.org</a></em></small></td>
                     </tr>
-
+					
                     <tr>
                         <td><strong><label for="password"><sup>*</sup>Password :</label></strong></td>
 
@@ -116,7 +117,9 @@ if($_POST)
                     <tr>
                         <td colspan="3"><small><em>Password of min 6-15 characters</em></small></td>
                     </tr>
-
+					<tr>
+						<td colspan="3">&nbsp;</td>
+					</tr>
                     <tr>
                         <td><?php
 							require_once("solvemedialib.php");
@@ -131,7 +134,7 @@ if($_POST)
 //require_once("solvemedialib.php");   //include the Solve Media library
 //echo solvemedia_get_html("qjmGRXOO9Bq7AfRhBy22ue7pPkcBCGIH"); //outputs the widget
 ?>
-            </form>Not Registered Yet? &nbsp;<button type="button" ><a href="signup.php">Signup</a></button>
+            </form>Not Registered Yet? &nbsp;<button type="button" class="normal"><a href="signup.php" class="normal">Signup</a></button>
 		 <footer>
 	        	<?php include('footer.php'); ?>
         </footer>
