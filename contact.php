@@ -1,3 +1,18 @@
+<?php
+	require('connect.php');
+	if($_POST)
+	{
+		if(isset($_POST['name']) &&isset($_POST['email']) &&isset($_POST['con']) && isset($_POST['message']) && ($_POST['submit']==='Mail Us'))
+		{
+			$name=$_POST['name'];
+			$email=$_POST['email'];
+			$mobile=$_POST['con'];
+			$message=$_POST['message'];
+			
+			echo $name.$email.$mobile.$message;
+		}
+	}
+?>
 <html>
 <head>
     <title>Quiz Home | Eclectika</title>
@@ -99,19 +114,19 @@
         					<table cellpadding="5" cellspacing="5">
         							<tr>
         								<td><label for="name">Name:</label></td>
-        								<td><input id="name" name="name" type="text" size="20" maxlength="40"/></td>
+        								<td><input id="name" name="name" type="text" size="20" maxlength="40" required="required"/></td>
         							</tr>
         							<tr>
         								<td><label for="email">Email:</label></td>
-        								<td><input id="email" name="email" type="email" size="20" maxlength="40" /></td>
+        								<td><input id="email" name="email" type="email" size="20" maxlength="40" required="required"/></td>
         							</tr>
         							<tr>
         								<td><label for="con">Contact No.</label></td>
-        								<td><input id="con" name="con" type="text"  size="20" maxlength="40" /></td>
+        								<td><input id="con" name="con" type="text"  size="20" maxlength="40" required="required"/></td>
         							</tr>
         							<tr>
         								<td><label for="message">Message:</label></td>
-        								<td><textarea id="message" name="message" rows="10" cols="20"></textarea></td>
+        								<td><textarea id="message" name="message" rows="10" cols="20" required="required"></textarea></td>
         							</tr>
         							<tr>
         								<td colspan="2" align="right"><input type="submit" name="submit" value="Mail Us" /></td>

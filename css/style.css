@@ -18,7 +18,6 @@ body {
 	background-size:cover;
 	width:80%;
 	margin:0 auto;
-	//margin:1% 5%;
 	height:1400px;
 }
 
@@ -35,13 +34,15 @@ body {
 }
 
 #leaderboard {
-	//background-image:url(../img/panel_header.png);
-	//background-size:100% 100%;
+	float: right;
 	text-align:center;
+	width:18%;
+	padding-left: 2%;
 }
 
 #quespanel {
-	//clear:both;
+	width: 18%;	
+	padding-right: 2%;
 }
 
 #header li {
@@ -53,9 +54,31 @@ body {
 	text-align:center;
 }
 
+#q1{
+	height : 300px;
+	overflow : auto;
+	width : 150px;
+}
+
+#q1::-webkit-scrollbar {  
+	width: 6px;  
+}  
+#q1::-webkit-scrollbar-track {  
+    background-color: #b8a779;  
+    border-left: 1px solid #ccc;  
+}  
+#q1::-webkit-scrollbar-thumb {  
+    background-color: #97805f;
+}  
+#q1::-webkit-scrollbar-thumb:hover {  
+    background-color: #68523a;  
+}
+
+
 #main_content {
-	width:50%;
+	width:60%;
 	float:left;
+	vertical-align: middle;
 }
 
 #navbar {
@@ -105,10 +128,7 @@ body {
 	margin:0 -3px 0 2px;
 	height:200px;
 	padding:15px 45px;
-	//text-shadow:2px 2px #aaa;
-	//width:150px;
 }
-
 #userdetails {
 	background-image:url(../img/header.png);
 	background-size:100% 100%;
@@ -118,7 +138,6 @@ body {
 	padding-left:0;
 	padding-top:1px;
 }
-
 .bold {
 	font-weight:700;
 }
@@ -143,8 +162,7 @@ body {
 }
 
 #container {
-	margin:0 auto;
-	margin-top:-40px;
+	margin: 0px auto 0px auto;
 	text-align:center;
 	width:85%;
 	padding:0;
@@ -161,8 +179,10 @@ footer {
 
 #main_content {
 	line-height:2em;
-	margin-top:0;
-	padding-top:0;
+	margin-top:0px;
+	padding-top:0px;
+	float: left;
+	text-align: center;
 }
 
 /*SHRINK*/
@@ -299,7 +319,7 @@ h1,h2,h3,h4,h5,h6 {
 
 #css3 li:hover a strong {
 	opacity:1;
-	top:-10px;
+	top:10px;
 }
 
 #mail table {
@@ -349,4 +369,15 @@ input[type=submit]:hover,.normal:hover {
 	color:#fff;
 	font-style:italic;
 	text-decoration:underline;
+}
+#qdesc{
+	text-decoration: underline;
+	padding: 5px 0px;
+	margin: 10px auto;
+}
+.topbottom{
+	margin: 20px auto;
+}
+.underline{
+	text-decoration: underline;
 }

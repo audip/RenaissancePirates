@@ -39,5 +39,6 @@
 		<td width="10%">Rank - <span class="bold"><?php echo $rank; ?></span></td>
 		<td width="10%">Score - <span class="bold"><?php echo $score; ?></span></td>
 		<td width="15%" align="center"><span class="bold "><a href="logout.php" class="logout">LOGOUT</a></span></td>
+	</tr>
 </table>
 </div>

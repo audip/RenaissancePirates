@@ -40,7 +40,7 @@ if(isset($_POST['ans']) && isset($_POST['submit'])){
 	}
 }
 ?>
-<form action="home.php" method="POST" style="margin : 100px 0px;">
+<form action="home.php" method="POST">
 <?php
 
 if($_GET){
@@ -50,11 +50,11 @@ if($_GET){
 	$r21=mysqli_query($con, $q21);
 	$row=mysqli_fetch_array($r21);
 	$ques=$row['ques'];
-	echo '<p>
-			<label for="ans" class="capital">'.$row['qdesc'].'</label>
-			<img src="'.$row['image'].'" alt="Eclectika Online Game Image"  width="100%"/>
-            '.$ques.'<br/>
-			<label for="ans">Key (Answer):</label>
+	echo '<p style="margin-top:10px">
+			<label for="ans" class="capital big bold" style="text-decoration:underline;margin: 10px auto;">'.$row['qdesc'].'</label>
+			<img src="'.$row['image'].'" alt="Eclectika Online Game Image"  width="100%" class="topbottom"/>
+            <span class="bold underline">Ques.</span> '.$ques.'<br/>
+			<label for="ans" class="bold underline">Key (Answer):</label>
 			<input type="hidden" value='.$q.' name = "qno" />
 			<input type="text" maxlength="50" name="ans" id="ans" required="required"/>
 			<br/><br/><input type="submit" value="Submit" name="submit"/>
