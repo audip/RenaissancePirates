@@ -35,9 +35,9 @@
 <div id="userdetails">
 <table width="80%">
 	<tr>
-		<td width="20%">Name - <span class="bold"><?php echo $name; ?></span></td>
+		<td width="25%">Name - <span class="bold"><?php echo $name; ?></span></td>
 		<td width="10%">Rank - <span class="bold"><?php echo $rank; ?></span></td>
 		<td width="10%">Score - <span class="bold"><?php echo $score; ?></span></td>
-		<td width="20%" align="center"><span class="bold "><a href="logout.php">LOGOUT</a></span></td>
+		<td width="15%" align="center"><span class="bold "><a href="logout.php" class="logout">LOGOUT</a></span></td>
 </table>
 </div>

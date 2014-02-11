@@ -1,7 +1,7 @@
 <?php
 session_start();
 require('connect.php');
-$_SESSION['username']='aditya';
+//$_SESSION['username']='aditya';
 //echo $_SESSION['username'];
 //die();
 
@@ -19,8 +19,7 @@ else
 <head>
     <title>Quiz Home | Eclectika</title>
      <link rel="stylesheet" href="css/normalize.css" type="text/css">
-     <link href="reset.css" type="text/css" rel="stylesheet" media="screen,projection" />
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen,projection">
     <meta charset="UTF-8">
     <meta name="keywords" content="Eclectika 2014, Treasure Hunt, Eclectika, Online Game, Pre-Eclectika Event">
     <meta name="author" content="Aditya Purandare http://plus.google.com/+AdityaPurandare,
@@ -60,7 +59,7 @@ else
             $('button').click(function(e){
                 e.preventDefault();
                 var id=$(this).attr("id");
-                console.log(id);
+                //console.log(id);
                 $.ajax({
                     type: 'GET',
                     url: 'question.php',

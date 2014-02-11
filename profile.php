@@ -114,10 +114,28 @@
 		}
 		
 	</style>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
 <center>
 	<div class="wrapper">
+		<div id="header" style="float:left">
+            <ul id="navbar">
+				<li id="home"><a href="home.php">Home</a></li>
+				<li id="profile"><a href="profile.php">My Profile</a></li>
+				<li id="play"><a href="home.php">Rejoice da Renaissance</a></li>
+				<li id="rules"><a href="#">Rules</a></li>
+				<li id="contacts"><a href="contact.php">Contacts</a></li>
+			</ul>
+			<div id="userdetails">
+				<table width="80%">
+					<tr>
+						<td width="20%"><span class="bold">&nbsp;</span></td>
+						<td width="10%"><span class="bold">&nbsp;</span></td>
+						<td width="10%"><span class="bold">&nbsp;</span></td>
+				</table>
+			</div>
+        </div>
 		<?php
 			require ("connect.php");
 						
@@ -191,9 +209,10 @@
 						</tr>
 					</table>
 				</fieldset>
-				</form>
-						
-	</div>
+				</form> <footer>
+	        	<?php include('footer.php'); ?>
+        </footer>
+    </div><?php ob_flush(); ?>
 </center>
 </body>
 </html>

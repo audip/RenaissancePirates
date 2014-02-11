@@ -2,10 +2,7 @@
 require('connect.php');
 if(isset($_POST['ans']) && isset($_POST['submit'])){
 	$ans =	$_POST['ans'];
-	$ans=trim(preg_replace('/\s+/','', $ans));
-	$ans=str_replace(' ', '', $ans);
-	$ans=str_replace('-', '', $ans);
-	$ans=str_replace('_', '', $ans);
+	$ans=trim($ans);
 	$ans=strtolower($ans);
 	$qno = $_POST['qno'];
 	$username = $_SESSION['username'];
@@ -44,13 +41,13 @@ $i=1;
 		echo $qup;die();
 */
 		$s1 = "UPDATE quizuser SET score='$scr', q$qno='1' WHERE username='$username'";
-		echo '<br/><strong>Correct Answer</strong>';
+		echo 'Correct Answer';
 		//echo $s1;die();
 		mysqli_query($con,$s1);
 	}
 }
 ?>
-<form action="home.php" method="POST" style="margin : 100px 0px;">
+<form action="home.php" method="POST" >
 <?php
 
 if($_GET){
@@ -62,6 +59,7 @@ $row=mysqli_fetch_array($r21);
 $ques=$row['ques'];
 echo '<p>
 			<label for="ans" class="capital">'.$row['qdesc'].'</label>
+			<br/><br/>
 			<img src="'.$row['image'].'" alt="Eclectika Online Game Image"  width="100%"/>
             '.$ques.'<br/>	
 			<label for="ans">Key (Answer):</label>

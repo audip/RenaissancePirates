@@ -2,6 +2,7 @@
 	ob_start();
 ?>
 <img src="img/panel_header.png" alt="" />
+<div id="q1">
 <table id="ques" align="center" cellpadding="4">
 <?php
 	require('connect.php');
@@ -16,7 +17,7 @@
 		if($row[$qno]=== '0' || $row[$qno]==='1')
 		{echo '<tr>
 						<td class="disguise" data-field='.$i.'>
-						<button id="'.$i.'">Question'.$i.'</button>
+						<button id="'.$i.'" class="ques">Question'.$i.'</button>
 						</td>';
 						if($row[$qno]==='1')
 							echo '<td>&#10003;</td>';
@@ -35,4 +36,5 @@
 	}
 ?>
 </table>
+</div>
 <img src="img/panel_footer.png" alt="" />
