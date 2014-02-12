@@ -11,10 +11,12 @@
 	$r12=mysqli_query($con, $q12);
 	$i=1;
 	$row=mysqli_fetch_array($r12);
-	while($i<=12)
+	$unlocked=10;
+	while($i<=$unlocked)
 	{
 		$qno='q'.$i;
 		if($row[$qno]=== '0' || $row[$qno]==='1')
+		//if($row[$qno]=== '0' || $row[$qno]==='1' || $row[$qno]==='2')
 		{echo '<tr>
 						<td class="disguise" data-field='.$i.'>
 						<button id="'.$i.'" class="ques">Question'.$i.'</button>

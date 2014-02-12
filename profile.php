@@ -92,7 +92,14 @@
 
 <html>
 <head>
-	<title>My Profile | Eclectika's Pirate</title>
+	<title>Renaissance Pirates | <?php 
+	require_once('connect.php');
+	$q14="SELECT name FROM stuinfo WHERE username='$username'";
+	$r14=mysqli_query($con,$q14);
+	$row=mysqli_fetch_array($r14);
+	$name=$row['name'];
+	echo $name;?>&#39;s
+	Profile</title>
 	<style type="text/css">
 		#hr{
 			color : #e0e0e0;
@@ -123,8 +130,8 @@
             <ul id="navbar">
 				<li id="home"><a href="home.php">Home</a></li>
 				<li id="profile"><a href="profile.php">My Profile</a></li>
-				<li id="play"><a href="home.php">Rejoice da Renaissance</a></li>
-				<li id="rules"><a href="#">Rules</a></li>
+				<li id="play"><a href="home.php">Renaissance Pirates</a></li>
+				<li id="rules"><a href="rules.php">Rules</a></li>
 				<li id="contacts"><a href="contact.php">Contacts</a></li>
 			</ul>
 			<div id="userdetails">

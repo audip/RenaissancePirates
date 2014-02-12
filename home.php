@@ -1,7 +1,7 @@
 <?php
 session_start();
 require('connect.php');
-//$_SESSION['username']='aditya';
+$_SESSION['username']='aditya';
 //echo $_SESSION['username'];
 //die();
 
@@ -17,10 +17,12 @@ else
 
 <html>
 <head>
-    <title>Quiz Home | Eclectika</title>
+    <title>Renaissance Pirates | Home</title>
      <link rel="stylesheet" href="css/normalize.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen,projection">
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css' />
     <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="120;home.php"/>
     <meta name="keywords" content="Eclectika 2014, Treasure Hunt, Eclectika, Online Game, Pre-Eclectika Event">
     <meta name="author" content="Aditya Purandare http://plus.google.com/+AdityaPurandare,
             Krishna Mohan Srivastava https://plus.google.com/112976571750925733219, Mansi Jain mansijain.nitrr@gmail.com">
@@ -47,7 +49,8 @@ else
             <?php include('header.php');   ?>
         </div>
 
-        <div id="container">
+        <div id="container" name="container">
+        		<a href="container"></a>
             <?php include('container.php');
 ?>
         </div>
@@ -72,5 +75,16 @@ else
             });
         })();
     </script>
+    <script>
+	    (function(){
+            $('#submit').click(function(e){
+                e.preventDefault();
+               //$("#questionpanel").load('quespanel.php');
+               $('meta').attr('content','2;home.php');           
+            });
+        })();
+    </script>
+
 </body>
 </html>
+<?php include_once("analyticstracking.php") ?>

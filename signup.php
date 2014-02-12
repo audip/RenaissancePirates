@@ -166,45 +166,42 @@ if($_POST)
 //include the Solve Media library
 ?>
 
+
+
 <html>
 <head>
-    <title>Quiz Signup Page</title>
-    <style type="text/css">
+    <title>Renaissance Pirates!</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<style type="text/css">
             p{display:block;}
     </style>
-    <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 
 <body>
-    <div id="wrapper">
+    <hr>
+
+    <div class="wrapper">
         <div id="header" style="float:left">
             <ul id="navbar">
-                <li id="home"><a href="home.php">Home</a></li>
+				<li id="home"><a href="home.php">Home</a></li>
+				<li id="profile"><a href="profile.php">My Profile</a></li>
+				<li id="play"><a href="home.php">Renaissance Pirates</a></li>
+				<li id="rules"><a href="rules.php">Rules</a></li>
+				<li id="contacts"><a href="contact.php">Contacts</a></li>
+			</ul>
+			<div id="userdetails">
+				<table width="80%">
+					<tr>
+						<td width="20%"><span class="bold">&nbsp;</span></td>
+						<td width="10%"><span class="bold">&nbsp;</span></td>
+						<td width="10%"><span class="bold">&nbsp;</span></td>
+				</table>
+			</div>
+        </div>
 
-                <li id="profile"><a href="profile.php">My Profile</a></li>
-
-                <li id="play"><a href="home.php">Rejoice da Renaissance</a></li>
-
-                <li id="rules"><a href="#">Rules</a></li>
-
-                <li id="contacts"><a href="#">Contacts</a></li>
-            </ul>
-
-            <div id="userdetails">
-                <table width="80%">
-                    <tr>
-                        <td width="20%">&nbsp;</td>
-
-                        <td width="10%">&nbsp;</td>
-
-                        <td width="10%">&nbsp;</td>
-
-                        <td width="20%" align="center"></td>
-                    </tr>
-                </table>
-            </div>
-
-            </div>
+		<center>
+		<h1> SIGN UP! </h1>
+		<br /> <br />
                 <div id="signup">
                     <fieldset>
                         <legend>Signup</legend> <small><em>Note : All fields with * are compulsory</em></small>
@@ -214,7 +211,7 @@ if($_POST)
                                 <tr>
                                     <td><label for="name">*Name :</label></td>
 
-                                    <td><input type="text" name="name" id="name" required="required"></td>
+                                    <td><input type="text" name="name" id="name" required="required" autofocus="autofocus" tabindex="1"></td>
 
                                     <td></td>
                                 </tr>
@@ -222,7 +219,7 @@ if($_POST)
                                 <tr>
                                     <td><label for="email">*Email :</label></td>
 
-                                    <td><input type="email" name="email" id="email" required="required"></td>
+                                    <td><input type="email" name="email" id="email" required="required" tabindex="2"></td>
 
                                     <td></td>
                                 </tr>
@@ -230,7 +227,7 @@ if($_POST)
                                 <tr>
                                     <td><label for="mobile">*Mobile :</label></td>
 
-                                    <td><input type="mobile" name="mobile" id="mobile" required="required" maxlength="10"></td>
+                                    <td><input type="mobile" name="mobile" id="mobile" required="required" maxlength="10" tabindex="3"></td>
 
                                     <td></td>
                                 </tr>
@@ -238,7 +235,7 @@ if($_POST)
                                 <tr>
                                     <td><label for="username">*Username :</label></td>
 
-                                    <td><input type="text" name="username" id="username" required="required"></td>
+                                    <td><input type="text" name="username" id="username" required="required" tabindex="4"></td>
 
                                     <td></td>
                                 </tr>
@@ -246,7 +243,7 @@ if($_POST)
                                 <tr>
                                     <td><label for="password">*Password :</label></td>
 
-                                    <td><input type="password" name="password" id="password" required="required"></td>
+                                    <td><input type="password" name="password" id="password" required="required" tabindex="5"></td>
 
                                     <td></td>
                                 </tr>
@@ -254,7 +251,7 @@ if($_POST)
                                 <tr>
                                     <td><label for="cpassword">*Confirm Password :</label></td>
 
-                                    <td><input type="password" name="cpassword" id="cpassword" required="required"></td>
+                                    <td><input type="password" name="cpassword" id="cpassword" required="required" tabindex="6"></td>
 
                                     <td></td>
                                 </tr>
@@ -262,7 +259,7 @@ if($_POST)
                                 <tr>
                                     <td><label for="male">*Gender :</label></td>
 
-                                    <td><input type="radio" name="gender" id="male" value="Male" required="required"><label for="male">Male</label> <input type="radio" name="gender" id="female" value="Female"><label for="female">Female</label></td>
+                                    <td><input type="radio" name="gender" id="male" value="Male" required="required" tabindex="7"><label for="male">Male</label> <input type="radio" name="gender" id="female" value="Female" tabindex="8"><label for="female">Female</label></td>
 
                                     <td></td>
                                 </tr>
@@ -270,7 +267,11 @@ if($_POST)
                                 <tr>
                                     <td><label for="college">*College :</label></td>
 
-                                    <td><input type="text" name="college" id="college" list="collegelist" size="50" required="required"> <datalist id="collegelist"></datalist></td>
+                                    <td><input type="text" name="college" id="college" list="collegelist" size="50" required="required" tabindex="8"> 
+                                  	  	<datalist 	id="collegelist">
+                                  	  				<option value="National Institute of Technology, Raipur"></option>
+								  	  	</datalist>
+                                    </td>
 
                                     <td></td>
                                 </tr>
@@ -278,7 +279,7 @@ if($_POST)
                                 <tr>
                                     <td><label for="branch">*Branch :</label></td>
 
-                                    <td><select id="branch" name="branch" required="required">
+                                    <td><select id="branch" name="branch" required="required" tabindex="9">
                                         <option value="Architecture">
                                             Architecture
                                         </option>
@@ -338,7 +339,7 @@ if($_POST)
                                 <tr>
                                     <td><label for="year">*Year :</label></td>
 
-                                    <td><select id="year" name="year" required="required">
+                                    <td><select id="year" name="year" required="required" tabindex="10">
                                         <option value="First">
                                             First
                                         </option>
@@ -370,9 +371,17 @@ if($_POST)
                                     </td>
                                 </tr>
                                  -->
+								 
 
                                 <tr>
-                                    <td colspan="2"><?php echo solvemedia_get_html("qjmGRXOO9Bq7AfRhBy22ue7pPkcBCGIH"); //outputs the widget
+                                    <td colspan="2">
+                                    <script type="text/javascript">
+										var ACPuzzleOptions = {
+														tabindex:   11,
+														lang:     'en'
+										};
+								</script>
+                                    <?php echo solvemedia_get_html("qjmGRXOO9Bq7AfRhBy22ue7pPkcBCGIH"); //outputs the widget
                                     ?></td>
                                 </tr>
 

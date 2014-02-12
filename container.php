@@ -3,7 +3,7 @@
         <?php include('quespanel.php'); ?>
     </div>
 
-    <div id="main_content">
+    <div id="main_content" style="overflow: scroll;height:40%">
 <!--We display the question and submit button here-->
       <?php include('main_content.php');?>
           </div>

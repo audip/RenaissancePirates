@@ -79,10 +79,12 @@ require_once('solvemedialib.php');
         padding: 10px 20px;
         color: white;
         font-size: 20px;
+        font-family: Merienda, Helvetica Neue, sans-serif;
     }
     input[type=submit]:hover{
         cursor: pointer;
         background-color: #cf1111;
+        font-family: Merienda, Helvetica Neue, sans-serif;
     }
     /*]]>*/
     </style>

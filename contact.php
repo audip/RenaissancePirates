@@ -47,9 +47,9 @@
 
                 <li id="profile"><a href="profile.php">My Profile</a></li>
 
-                <li id="play"><a href="home.php">Rejoice da Renaissance</a></li>
+                <li id="play"><a href="home.php">Renaissance Pirates</a></li>
 
-                <li id="rules"><a href="#">Rules</a></li>
+                <li id="rules"><a href="rules.php">Rules</a></li>
 
                 <li id="contacts"><a href="contact.php">Contacts</a></li>
             </ul>
@@ -85,28 +85,7 @@
             		<td class="bold big">Aditya Purandare</td>
             		<td class="bold big">Mansi Jain</td>
             </tr>
-            <tr>
-            <td>
-            	<ul class="soc" id="css3">
-            		<li class="facebook"><a href="http://www.facebook.com"></a></li>
-            		<li class="twitter"><a href="http://www.twitter.com"></a></li>
-            		<li class="google"><a href="http://www.google.com"></a></li>
-            	</ul>
-            </td>
-            <td>
-            	<ul class="soc" id="css3">
-            		<li class="facebook"><a href="http://www.facebook.com"></a></li>
-            		<li class="twitter"><a href="http://www.twitter.com/adityapurandare"></a></li>
-            		<li  class="google"><a href="http://www.google.com"></a></li>
-            	</ul>
-            </td>
-            <td>
-            	<ul class="soc" id="css3">
-            		<li class="twitter"><a href="http://www.twitter.com/BoreStore"></a></li>
-            	</ul>
-            </td>
-            </tr>
-        </table>
+         </table>
         <div id="mail">
         			<h3>Have a Question or Want to know an Answer? ;)</h3>
         			<h4>(Don&#39;t Worry, we wont tell anyone!)</h4>

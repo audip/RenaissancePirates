@@ -11,6 +11,7 @@
 body {
 	background-image:url(../img/body_bg.jpg);
 	font-family: 'high_tower_textregular',cursive,sans-serif;
+	font-size: 17px;
 }
 
 .wrapper {
@@ -29,7 +30,7 @@ body {
 
 #header {
 	width:100%;
-	margin:20% 5% 0 0;
+	margin: 20% 0px 0px 0px;
 	text-align:center;
 }
 
@@ -54,12 +55,15 @@ body {
 	text-align:center;
 }
 
-#q1{
+quespanel>#q1{
 	height : 300px;
 	overflow : auto;
 	width : 150px;
 }
-
+#main_content>#q1{
+	height : 100%;
+	overflow : auto;
+}
 #q1::-webkit-scrollbar {  
 	width: 6px;  
 }  
@@ -134,7 +138,7 @@ body {
 	background-size:100% 100%;
 	height:150px;
 	width:90%;
-	margin:50px auto 0;
+	margin:50px auto -40px auto;
 	padding-left:0;
 	padding-top:1px;
 }
@@ -282,18 +286,6 @@ h1,h2,h3,h4,h5,h6 {
 	text-decoration:none;
 }
 
-.facebook {
-	background:url(../img/facebook.png) no-repeat;
-}
-
-.twitter {
-	background:url(../img/tweet.png) no-repeat;
-}
-
-.google {
-	background:url(../img/google.png) no-repeat;
-}
-
 #css3:hover li {
 	opacity:.2;
 }
@@ -320,6 +312,25 @@ h1,h2,h3,h4,h5,h6 {
 #css3 li:hover a strong {
 	opacity:1;
 	top:10px;
+}
+
+#mail{
+	height: 25%;
+	overflow: auto;
+}
+
+#mail::-webkit-scrollbar {  
+	width: 6px;  
+}  
+#mail::-webkit-scrollbar-track {  
+    background-color: #b8a779;  
+    border-left: 1px solid #ccc;  
+}  
+#mail::-webkit-scrollbar-thumb {  
+    background-color: #97805f;
+}  
+#mail::-webkit-scrollbar-thumb:hover {  
+    background-color: #68523a;  
 }
 
 #mail table {
@@ -380,4 +391,9 @@ input[type=submit]:hover,.normal:hover {
 }
 .underline{
 	text-decoration: underline;
+}
+#foottext{
+	font-style: italic;
+	font-family: Montserrat, sans-serif;
+	text-shadow: 0px 1px 0px #999, 0px 1.5px 0px #888, 0px 2px 0px #777;
 }

@@ -29,7 +29,7 @@
 	<li id="home"><a href="home.php">Home</a></li>
 	<li id="profile"><a href="profile.php">My Profile</a></li>
 	<li id="play"><a href="home.php">Rejoice da Renaissance</a></li>
-	<li id="rules"><a href="#">Rules</a></li>
+	<li id="rules"><a href="rules.php">Rules</a></li>
 	<li id="contacts"><a href="contact.php">Contacts</a></li>
 </ul>
 <div id="userdetails">

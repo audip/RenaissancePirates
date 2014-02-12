@@ -63,7 +63,7 @@ if($_POST)
 
 <html>
 <head>
-    <title>Eclectika Pirates!</title>
+    <title>Renaissance Pirates!</title>
 	<link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 
@@ -75,8 +75,8 @@ if($_POST)
             <ul id="navbar">
 				<li id="home"><a href="home.php">Home</a></li>
 				<li id="profile"><a href="profile.php">My Profile</a></li>
-				<li id="play"><a href="home.php">Rejoice da Renaissance</a></li>
-				<li id="rules"><a href="#">Rules</a></li>
+				<li id="play"><a href="home.php">Renaissance Pirates</a></li>
+				<li id="rules"><a href="rules.php">Rules</a></li>
 				<li id="contacts"><a href="contact.php">Contacts</a></li>
 			</ul>
 			<div id="userdetails">
@@ -121,7 +121,13 @@ if($_POST)
 						<td colspan="3">&nbsp;</td>
 					</tr>
                     <tr>
-                        <td><?php
+                        <td>
+                        <script type="text/javascript">
+	var ACPuzzleOptions = {
+                tabindex:   3,
+				lang:	    'en'
+	};
+  </script><?php
 							require_once("solvemedialib.php");
 							echo solvemedia_get_html("qjmGRXOO9Bq7AfRhBy22ue7pPkcBCGIH"); //outputs the widget
 ?></td>
