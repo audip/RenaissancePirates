@@ -1,6 +1,6 @@
 <?php
 require_once('solvemedialib.php');
-//require('serverinfo.php');
+require('connect.php');
 //include the Solve Media library
 ?>
 
@@ -9,7 +9,7 @@ require_once('solvemedialib.php');
     <link href='http://fonts.googleapis.com/css?family=Merienda' rel='stylesheet' type='text/css' />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-    <title>Eclectika 2014 | Rejoicing DA Renaissance</title>
+    <title>Renaissance Pirates | Admin Panel </title>
     <style type="text/css">
 /*<![CDATA[*/
     .font,p,footer,header,li,h1,h2,h3,h4,h5,h6{

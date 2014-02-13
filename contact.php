@@ -1,17 +1,22 @@
 <?php
-	require('connect.php');
-	if($_POST)
+require('connect.php');
+if($_POST)
+{
+	if(isset($_POST['name']) &&isset($_POST['email']) &&isset($_POST['con']) && isset($_POST['message']) && ($_POST['submit']==='Mail Us'))
 	{
-		if(isset($_POST['name']) &&isset($_POST['email']) &&isset($_POST['con']) && isset($_POST['message']) && ($_POST['submit']==='Mail Us'))
+		$name=$_POST['name'];
+		$email=$_POST['email'];
+		$mobile=$_POST['con'];
+		$message=$_POST['message'];
+
+		//echo $name.$email.$mobile.$message;
+		if(!empty($_POST['name']) &&!empty($_POST['email']) &&!empty($_POST['con']) && !empty($_POST['message']))
 		{
-			$name=$_POST['name'];
-			$email=$_POST['email'];
-			$mobile=$_POST['con'];
-			$message=$_POST['message'];
-			
-			echo $name.$email.$mobile.$message;
+			$q24="INSERT INTO rpfeedback VALUES('','$name','$mobile','$email','$message')";
+			mysqli_query($con, $q24);
 		}
 	}
+}
 ?>
 <html>
 <head>
@@ -85,6 +90,11 @@
             		<td class="bold big">Aditya Purandare</td>
             		<td class="bold big">Mansi Jain</td>
             </tr>
+            <tr>
+            	<td class="big">krishna@eclectika.org</td>
+            	<td class="big">aditya@eclectika.org</td>
+            	<td class="big">mansi@eclectika.org</td>
+            </tr>
          </table>
         <div id="mail">
         			<h3>Have a Question or Want to know an Answer? ;)</h3>
@@ -100,7 +110,7 @@
         								<td><input id="email" name="email" type="email" size="20" maxlength="40" required="required"/></td>
         							</tr>
         							<tr>
-        								<td><label for="con">Contact No.</label></td>
+        								<td><label for="con">Contact No.:</label></td>
         								<td><input id="con" name="con" type="text"  size="20" maxlength="40" required="required"/></td>
         							</tr>
         							<tr>
@@ -115,6 +125,6 @@
 </div>        </div>
          <footer style="margin-top:-10px"><?php include('footer.php'); ?></footer>
     </div>
-      
+
 </body>
 </html>
