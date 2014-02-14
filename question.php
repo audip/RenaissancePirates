@@ -1,7 +1,7 @@
 <?php
 require('connect.php');
 if(isset($_POST['ans']) && isset($_POST['submit'])){
-	$ans = $_POST['ans'];
+	$ans = mysqli_real_escae_string($con, $_POST['ans']);
 	$ans=trim(preg_replace('/\s+/','', $ans));
 	$ans=str_replace(' ', '', $ans);
 	$ans=str_replace('-', '', $ans);
@@ -47,7 +47,7 @@ if(isset($_POST['ans']) && isset($_POST['submit'])){
 			echo '<br/><strong>Correct Answer</strong>';
 			//echo $s1;die();
 			mysqli_query($con,$s1);
-			header('refresh:5;home.php');
+			header('refresh:2;home.php');
 		}
 	}
 }
@@ -84,9 +84,12 @@ if($_GET){
 	$row=mysqli_fetch_array($r21);
 	$ques=$row['ques'];
 	echo '<p style="margin: 10px auto;text-align:center;">
-                        <label for="ans" class="capital big bold" style="text-decoration:underline;margin: 10px auto;">'.$row['qdesc'].'<br/>('.$row['points'].'Points)</label><br/>
-                        <img src="'.$row['image'].'" alt="Eclectika Online Game Image" width="80%" class="topbottom"/>
-                        <br/>
+                        <label for="ans" class="capital big bold" style="text-decoration:underline;margin: 10px auto;">'.$row['qdesc'].'<br/>('.$row['points'].'Points)</label><br/>';
+                        if($row['image']!="")
+                        {
+                        			echo '<img src="'.$row['image'].'" alt="Eclectika Online Game Image" width="80%" class="topbottom"/>';
+                        	}
+                       echo '<br/>
                         <span class="bold underline">Ques.</span> '.$ques.'<br/>
                         <label for="ans" class="bold underline">Key (Answer):</label>
                         <input type="hidden" value='.$q.' name = "qno" />

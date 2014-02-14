@@ -22,7 +22,7 @@ require('connect.php');
     .wrapper{
     width:100%;
     }
-    ul li{
+    li{
     display:inline;
     margin-left:3%;
     }
@@ -88,14 +88,7 @@ require('connect.php');
         font-family: Merienda, Helvetica Neue, sans-serif;
         -webkit-transition: background-color 0.4s ease-out;
     }
-    li a:hover{
-	    text-decoration: underline;
-	    -webkit-transition: text-decoration 1s ease-out;
-    }
-    li a{
-	    color: white;
-	    text-decoration: none;
-    }
+    /*]]>*/
     </style>
 </head>
 
@@ -103,29 +96,15 @@ require('connect.php');
     <div id="wrapper">
         <div id="header" class="header">
             <ul>
-                <li><a href="adminhome.php">Home</a></li>
+                <li><a href="adminhome.php" style="text-decoration:none; color:white">Home</a></li>
 
-                <li><a href="#">Online Events</a></li>
+                <li><a href="#" style="text-decoration:none; color:white;">Online Events</a></li>
 
-                <li><a href="#">Accomodation</a></li>
+                <li><a href="#" style="text-decoration:none; color:white;">Accomodation</a></li>
 
-                <li><a href="#">Events</a></li>
+                <li><a href="#" style="text-decoration:none; color:white;">Events</a></li>
 
-                <li><a href="logout.php">Logout</a></li>
+                <li><a href="logout.php" style="text-decoration:none; color:white;">Logout</a></li>
             </ul>
         </div>
 
-        <div id="content" class="content">
-        
-        		<ol>
-        				<li><a href="pirates.php">Pirates List</a></li>
-        				<li><a href="feedback.php">Feedback System</a></li>
-        		</ol>
-        
-            <div id="footer" class="footer">
-                <h5 style="color:white;">&copy; Team Renaissance Pirates | All Rights Are Reserved.</h5>
-            </div>
-        </div>
-    </div>
-</body>
-</html>

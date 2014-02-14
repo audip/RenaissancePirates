@@ -9,10 +9,10 @@
 				margin-left: 20px;
 				width: 100%;
 				color: white;
-				background-color: #3498db;
+				background-color: #e74c3c;
 			}
 			.lightblue{
-				color: #3498db;
+				color: #e74c3c;
 				font-size: 20px;
 			}
 			.underline{

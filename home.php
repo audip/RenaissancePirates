@@ -1,7 +1,7 @@
 <?php
 session_start();
 require('connect.php');
-$_SESSION['username']='aditya';
+//$_SESSION['username']='aditya';
 //echo $_SESSION['username'];
 //die();
 

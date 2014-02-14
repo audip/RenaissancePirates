@@ -4,10 +4,10 @@ if($_POST)
 {
 	if(isset($_POST['name']) &&isset($_POST['email']) &&isset($_POST['con']) && isset($_POST['message']) && ($_POST['submit']==='Mail Us'))
 	{
-		$name=$_POST['name'];
-		$email=$_POST['email'];
-		$mobile=$_POST['con'];
-		$message=$_POST['message'];
+		$name=mysqli_real_escape_string($con, $_POST['name']);
+		$email=mysqli_real_escape_string($con,$_POST['email']);
+		$mobile=mysqli_real_escape_string($con,$_POST['con']);
+		$message=mysqli_real_escape_string($con,$_POST['message']);
 
 		//echo $name.$email.$mobile.$message;
 		if(!empty($_POST['name']) &&!empty($_POST['email']) &&!empty($_POST['con']) && !empty($_POST['message']))
@@ -93,12 +93,17 @@ if($_POST)
             <tr>
             	<td class="big">krishna@eclectika.org</td>
             	<td class="big">aditya@eclectika.org</td>
-            	<td class="big">mansi@eclectika.org</td>
+            	<td class="big">mansijain.nitrr@gmail.com</td>
+            </tr>
+            <tr>
+            	<td class="big">&nbsp;</td>
+            	<td class="big">9301522144</td>
+            	<td class="big">&nbsp;</td>
             </tr>
          </table>
         <div id="mail">
-        			<h3>Have a Question or Want to know an Answer? ;)</h3>
-        			<h4>(Don&#39;t Worry, we wont tell anyone!)</h4>
+        			<h3>Have a Question or Want to know an Answer?</h3>
+        			
         			<form action="contact.php" method="post">
         					<table cellpadding="5" cellspacing="5">
         							<tr>

@@ -61,7 +61,8 @@ quespanel>#q1{
 	width : 150px;
 }
 #main_content>#q1{
-	height : 40%;
+	//height : 40%;
+	height: 100%;
 	overflow : auto;
 }
 #q1::-webkit-scrollbar {  

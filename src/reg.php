@@ -1,8 +1,6 @@
 <?php
 require_once('solvemedialib.php');
-//require('connect.php');
-require('serverinfo.php');
-require_once('fb.php');
+//require('serverinfo.php');
 //include the Solve Media library
 ?>
 
@@ -11,8 +9,9 @@ require_once('fb.php');
     <link href='http://fonts.googleapis.com/css?family=Merienda' rel='stylesheet' type='text/css' />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-    <title>Renaissance Pirates | Admin Panel </title>
+    <title>Eclectika 2014 | Rejoicing DA Renaissance</title>
     <style type="text/css">
+/*<![CDATA[*/
     .font,p,footer,header,li,h1,h2,h3,h4,h5,h6{
     font-family:Merienda;
     }
@@ -80,13 +79,12 @@ require_once('fb.php');
         padding: 10px 20px;
         color: white;
         font-size: 20px;
-        font-family: Merienda, Helvetica Neue, sans-serif;
     }
     input[type=submit]:hover{
         cursor: pointer;
         background-color: #cf1111;
-        font-family: Merienda, Helvetica Neue, sans-serif;
     }
+    /*]]>*/
     </style>
 </head>
 
@@ -140,50 +138,89 @@ if($_POST)
 			$year=mysqli_real_escape_string($con, $_POST['year']);
 			//echo $name.'<br/>'.$email.'<br/>'.$username.'<br/>'.$password.'<br/>'.$cpassword.'<br/>'.$mobile.'<br/>'.$gender.'<br/>'.$college.'<br/>'.$branch.'<br/>'.$year.'<br/>';
 			//die();
-		    //echo $name.$email.$username.$password.$cpassword.$gender.$college.$branch.$year;
+			//FILE UPLOADING CODE STARTS HERE
+			$pic='';
+			$flag=0;
+			if(isset($_FILES["file"]["name"]))
+			{
+				//FILE UPLOADING CODE STARTS HERE
+				$allowedExts = array("gif", "jpeg", "jpg", "png");
+				$temp = explode(".", $_FILES["file"]["name"]);
+				$extension = strtolower(end($temp));
+				if ((($_FILES["file"]["type"] == "image/gif")
+						|| ($_FILES["file"]["type"] == "image/jpeg")
+						|| ($_FILES["file"]["type"] == "image/jpg")
+						|| ($_FILES["file"]["type"] == "image/pjpeg")
+						|| ($_FILES["file"]["type"] == "image/x-png")
+						|| ($_FILES["file"]["type"] == "image/png"))
+					&& ($_FILES["file"]["size"] < 200000)
+					&& in_array($extension, $allowedExts))
+				{
+					if ($_FILES["file"]["error"] > 0)
+					{
+						echo "Return Code: ".$_FILES["file"]["error"]."<br>";
+					}
+					else
+					{
+						//echo "Upload: ".$_FILES["file"]["name"]."<br>";
+						//echo "Type: ".$_FILES["file"]["type"]."<br>";
+						//echo "Size: ".($_FILES["file"]["size"] / 1024)." kB<br>";
+						//echo "Temp file: ".$_FILES["file"]["tmp_name"]."<br>";
+
+						if (file_exists("images/".$_FILES["file"]["name"]))
+						{
+							echo $_FILES["file"]["name"]." already exists. ";
+						}
+						else
+						{
+							$s5 = ".";
+							$img = 'images/'.$username.$s5.$extension;
+							if(file_exists("images/$img"))
+								unlink("images/$img");
+							move_uploaded_file($_FILES["file"]["tmp_name"], $img);
+							//echo "Stored in: "."images/".$_FILES["file"]["name"];
+
+
+							$s1 = "UPDATE stuinfo SET pic='$img' WHERE username='$username'";
+							mysqli_query($con, $s1);
+							header("location:profile.php");
+						}
+					}
+				}
+			}           //echo $name.$email.$username.$password.$cpassword.$gender.$college.$branch.$year;
 			if(!empty($name)&&!empty($email)&&!empty($username)&&!empty($password)
 				&&!empty($cpassword)&&!empty($gender)&&!empty($college)&&!empty($branch)
 				&&!empty($year)&&!empty($mobile))
 			{
 				if($password===$cpassword)
 				{
-					$otp=$fbid;
-					$pic=$imageURL;
+					$otp=uniqid();
 					$q4="INSERT INTO stuinfo VALUES('','$name','$username','$password','$college','$mobile','$email','$gender','$branch','$year','$pic','$otp')";
 					//echo $q4;die();
 					mysqli_query($con, $q4);
+					if($flag)
+					{
+						move_uploaded_file($_FILES["file"]["tmp_name"], $pic);
+					}
 					$link='<a href="http://eclectika.org/verify.php?otp='.$otp.'">Verify Email</a>';
 					echo '<br/>Registration Complete!!';
 					//echo $link;
 					//mail();
-					header('location:http://eclectika.org/index1.php');
+					//header('location:login.php');
 				}
 			}
 
 		}
 	}
 }
+?>
 
-?>		
-			<p >
-			<?php 
-					if($facebook->getUser())
-					{
-						
-					}
-			?>
-			<fb:login-button perms="email, publish_stream" size="large">Connect with Facebook</fb:login-button><br/><br/>
-			<small style="color:#e1e1e1;">Faster Signup using Facebook</small></p>
             <form action="reg.php" method="post" name="signup">
                 <table cellpadding="5" cellspacing="5" align="center" style="color:#CCC;">
                     <tr>
                         <td><label for="name">*Name :</label></td>
 
-                        <td>
-                        		<input type="text" name="name" id="name" required="" 
-                        		value="<?php if($facebook->getUser()){echo $fbname;} ?>"
-                        		/>
-                        	</td>
+                        <td><input type="text" name="name" id="name" required="" /></td>
 
                         <td></td>
                     </tr>
@@ -191,14 +228,23 @@ if($_POST)
                     <tr>
                         <td><label for="email">*Email :</label></td>
 
-                        <td><input type="email" name="email" id="email" value="<?php if($facebook->getUser()){echo $fbemail;} ?>" /></td>
+                        <td><input type="email" name="email" id="email" /></td>
 
                         <td></td>
                     </tr>
+
+                    <tr>
+                        <td><label for="mobile">*Mobile :</label></td>
+
+                        <td><input type="mobile" name="mobile" id="mobile" required="" maxlength="10" /></td>
+
+                        <td></td>
+                    </tr>
+
                     <tr>
                         <td><label for="username">*Username :</label></td>
 
-                        <td><input type="text" name="username" id="username" value="<?php if($facebook->getUser()){echo $fbusername;} ?>"/></td>
+                        <td><input type="text" name="username" id="username" /></td>
 
                         <td></td>
                     </tr>
@@ -222,14 +268,7 @@ if($_POST)
                     <tr>
                         <td><label for="male">*Gender :</label></td>
 
-                        <td><input type="radio" name="gender" id="male" value="Male" <?php if($facebook->getUser()){if($fbgender=="Male")echo 'checked="checked"';}?>/><label for="male">Male</label> <input type="radio" name="gender" id="female" value="Female" <?php if($facebook->getUser()){if($fbgender=="Female")echo 'checked="checked"';}?>/><label for="female">Female</label></td>
-
-                        <td></td>
-                    </tr>
-					<tr>
-                        <td><label for="mobile">*Mobile :</label></td>
-
-                        <td><input type="mobile" name="mobile" id="mobile" required="" maxlength="10" /></td>
+                        <td><input type="radio" name="gender" id="male" value="Male" /><label for="male">Male</label> <input type="radio" name="gender" id="female" value="Female" /><label for="female">Female</label></td>
 
                         <td></td>
                     </tr>
@@ -329,16 +368,12 @@ if($_POST)
 
                         <td></td>
                     </tr>
-                    <?php
-					if($facebook->getUser()){
-					echo '
-                    <tr>
-                        <td><label for="file">Facebook Profile Picture :</label></td>
 
-                        <td><img style="border-radius: 155px;" src="'.$imageURL.'" width="160" height="150"/></td>
-                    </tr>';
-                    }
-                    ?>
+                    <tr>
+                        <td><label for="file">Profile Picture :</label></td>
+
+                        <td><input type="file" name="file" id="file" /></td>
+                    </tr>
 
                     <tr>
                         <td colspan="2"><?php echo solvemedia_get_html("qjmGRXOO9Bq7AfRhBy22ue7pPkcBCGIH"); //outputs the widget
@@ -356,26 +391,9 @@ if($_POST)
             </form>
 
             <div id="footer" class="footer">
-                <h5 style="color:white;">&copy;TEAM ECLECTIKA | All Rights Are Reserved.</h5>
+                <h5 style="color:white;">@TEAM ECLECTIKA | All Rights Are Reserved.</h5>
             </div>
         </div>
     </div>
-    
-	<div id='fb-root'></div>
-	<script src='http://connect.facebook.net/en_US/all.js'></script>
-	<script>
-				FB.init({
-    appId      : '302979109716651',
-    status     : true, // check login status
-    cookie     : true, // enable cookies to allow the server to access the session
-    xfbml      : true  // parse XFBML
-		});
-		FB.Event.subscribe('auth.login', function(response) {
-
-        window.location.reload();
-
-      });
-
-      </script> 
 </body>
 </html>
