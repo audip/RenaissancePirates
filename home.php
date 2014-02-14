@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 require('connect.php');
 //$_SESSION['username']='aditya';
@@ -18,9 +19,11 @@ else
 <html>
 <head>
     <title>Renaissance Pirates | Home</title>
-     <link rel="stylesheet" href="css/normalize.css" type="text/css">
+    <link rel="stylesheet" href="css/normalize.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen,projection">
     <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css' />
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="refresh" content="120;home.php"/>
     <meta name="keywords" content="Eclectika 2014, Treasure Hunt, Eclectika, Online Game, Pre-Eclectika Event">
@@ -87,4 +90,4 @@ else
 
 </body>
 </html>
-<?php include_once("analyticstracking.php") ?>
+<?php include_once("analyticstracking.php"); ob_flush();?>

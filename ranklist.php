@@ -5,6 +5,7 @@
 		<th>&nbsp;</th>
 		<th>Username</th>
 		<th>Score</th>
+		<th>Playing</th>
 	</tr>
 	<?php
 require('connect.php');
@@ -22,6 +23,7 @@ else
 $q1="SELECT username, score FROM quizuser ORDER BY score DESC";
 $r1=mysqli_query($con, $q1);
 $i=0;
+$status=$_SESSION['status'];
 while($i<20 && $i<mysqli_num_rows($r1))
 {
 	$row=mysqli_fetch_array($r1);
@@ -31,6 +33,7 @@ while($i<20 && $i<mysqli_num_rows($r1))
 								<td>'.($i+1).'</td>
 								<td>'.$row['username'].'</td>
 								<td>'.$row['score'].'</td>
+								<td>'.$status.'</td>
 							</tr>';
 	    }
 		else
@@ -39,6 +42,7 @@ while($i<20 && $i<mysqli_num_rows($r1))
 								<td>'.($i+1).'</td>
 								<td>'.$row['username'].'</td>
 								<td>'.$row['score'].'</td>
+								<td>'.$status.'</td>
 							</tr>';
 	    }
 	$i++;

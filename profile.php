@@ -100,6 +100,8 @@
 	$name=$row['name'];
 	echo $name;?>&#39;s
 	Profile</title>
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
 	<style type="text/css">
 		#hr{
 			color : #e0e0e0;

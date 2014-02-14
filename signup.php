@@ -2,6 +2,7 @@
 ob_start();
 require_once("solvemedialib.php");
 require('connect.php');
+require_once('fb.php');
 if($_POST)
 {
     $privkey="arSuUTJHqxu1uarsXvuO6UyluliVw9Dq";
@@ -34,127 +35,25 @@ if($_POST)
             $year=mysqli_real_escape_string($con, $_POST['year']);
             //echo $name.'<br/>'.$email.'<br/>'.$username.'<br/>'.$password.'<br/>'.$cpassword.'<br/>'.$mobile.'<br/>'.$gender.'<br/>'.$college.'<br/>'.$branch.'<br/>'.$year.'<br/>';
             //die();
-            //FILE UPLOADING CODE STARTS HERE
-            $pic='';
-            $flag=0;
-            //echo $name.$email.$username.$password.$cpassword.$gender.$college.$branch.$year;
-            $allowedExts = array("gif", "jpeg", "jpg", "png");
-            $temp = explode(".", $_FILES["file"]["name"]);
-            $extension = strtolower(end($temp));
-            /*echo 'Image received';
-                if ((($_FILES["file"]["type"] == "image/gif")
-                        || ($_FILES["file"]["type"] == "image/jpeg")
-                        || ($_FILES["file"]["type"] == "image/jpg")
-                        || ($_FILES["file"]["type"] == "image/pjpeg")
-                        || ($_FILES["file"]["type"] == "image/x-png")
-                        || ($_FILES["file"]["type"] == "image/png"))
-                    && ($_FILES["file"]["size"] < 2000000)
-                    && in_array($extension, $allowedExts))
-                {
-                    if ($_FILES["file"]["error"] > 0)
-                    {
-                        echo "Return Code: ".$_FILES["file"]["error"]."<br>";
-                    }
-                    else
-                    {
-                        //echo "Upload: ".$_FILES["file"]["name"]."<br>";
-                        //echo "Type: ".$_FILES["file"]["type"]."<br>";
-                        //echo "Size: ".($_FILES["file"]["size"] / 1024)." kB<br>";
-                        //echo "Temp file: ".$_FILES["file"]["tmp_name"]."<br>";
-
-                        if (file_exists("images/".$_FILES["file"]["name"]))
-                        {
-                            echo $_FILES["file"]["name"]." already exists. ";
-                        }
-                        else
-                        {
-
-                            $s5 = ".";
-                            $img = 'images/'.$username.$s5.$extension;
-                            $_SESSION['image']=$img;
-                            //echo 'hi i m almost here';
-                            //$pic=$img;
-                            //$flag++;
-                        }
-                    }
-                }*/
-
+        
 
             if(!empty($name)&&!empty($email)&&!empty($username)&&!empty($password)
                 &&!empty($cpassword)&&!empty($gender)&&!empty($college)&&!empty($branch)
                 &&!empty($year)&&!empty($mobile))
             {
                 if($password===$cpassword)
-                {
-                    $otp=uniqid();
-                    //$password=md5($password);
-                    $q4="INSERT INTO stuinfo VALUES('','$name','$username','$password','$college','$mobile','$email',','$dob',$gender','$branch','$year','','$otp')";
-                    mysqli_query($con, $q4);
-                    /*if($_SESSION['image'])
-                    {
-                        $img=$_SESSION['image'];
-                    }*/
-                    /*$q40="SELECT id FROM stuinfo WHERE username='$username'";
-                    $r40=mysqli_query($con, $q40);
-                    $row=mysqli_fetch_array($r40);
-                    $id=$row['id'];
-                    $s5 = ".";
-                    $img = 'images/'.$username.$s5.$extension;
-                    if($id)
-                    {
-                        move_uploaded_file($_FILES["file"]["tmp_name"], $img);
-                    }*/
-                    $link='<a href="http://eclectika.org/quiz/verify.php?otp='.$otp.'" style="color:white;">VERIFY EMAIL ADDRESS</a>';
-                    echo 'Data Captured Successfully! Redirecting...';
-                    //echo $link;
-                    //Mail Code Starts Here - Written by Aditya Purandare
-                    $to ="$email";
-                    $name = "$name";
-                    $from    = "admin@eclectika.org";
-                    //begin of HTML message
-                    $message = '<html>
-                <head>
-                    <link href="http://fonts.googleapis.com/css?family=Merienda" rel="stylesheet" type="text/css">
-                    <style>
-                        a{
-                            color: white;
-                        }
-                    </style>
-                </head>
-                    <body style="background:url(http://www.eclectika.org/test3/css/images/bg.jpg);background-size:cover;font-family:Merienda;">
-                    <font color="White">
-                    Dear <strong><em>'.$name.'</em></strong>, <br/>
-                    <img src="http://eclectika.org/test3/css/images/eclectikacover.jpg" style="width: 70%;"/>
-                    <p>Welcome to Central India&#39;s Largest Cultural &amp; Technical Festival, ECLECTIKA 2014, is starting on 21st, 22nd &amp; 23rd February &#39;14</p>
-                    <p>
-                    Thank You for Registering to Eclectika &#39;s Official Website, we will soon start Updating you on Eclectika&#39;s Progress.
-                    </p>
-                    <p>
-                    Complete the signup process for <a href="http://eclectika.org">Eclectika.org</a>, by clicking '.$link.';
-                    Or Enter the following when prompted :<span style="color:red">'.$otp.'</style>
-                    </p>
-                    <p>
-                    Follow us on our Social channels: <a><img src="http://eclectika.org/images/facebook.png" width="30" height="30"/></a>&nbsp; <a><img src="http://eclectika.org/images/twitter.png" width="30" height="30"/></a>
-                    </p>
-                    <br/>
-                    Regards,<br/>
-                    <strong>Admin</strong><br/>Webteam Eclectika<br/>
-                    Contact Us :<br/>09479143087 (Saket Poddar, 4th Year)
-                    <br/>09301522144 (Aditya Purandare, 3rd Year)
-                    </font>
-                    </html>';
-                    $subject="Team Eclectika&#39;s Welcome Mail";
-                    //end of message
-                    $headers = 'From: '.$from."\r\n".
-                        "Reply-To: aditya@eclectika.org \r\n".
-                        "Content-Type: text/html; charset=iso-8859-1\n".
-                        'X-Mailer: PHP/'.phpversion();
-                    //echo $to.'<br/>'.$from.'<br/>'.$message.'<br/>'.$subject;
-                    //die();
-                    mail($to, $subject, $message, $headers);
-                    //Mail Code Ends Here
-                    header('location:index.php');
-                }
+				{
+					$otp=$fbid;
+					$pic=$imageURL;
+					$q4="INSERT INTO stuinfo VALUES('','$name','$username','$password','$college','$mobile','$email','$gender','$branch','$year','$pic','$otp')";
+					//echo $q4;die();
+					mysqli_query($con, $q4);
+					$link='<a href="http://eclectika.org/verify.php?otp='.$otp.'">Verify Email</a>';
+					echo '<br/>Registration Complete!!';
+					//echo $link;
+					//mail();
+					header('location:index.php');
+				}
             }
 
         }
@@ -172,6 +71,8 @@ if($_POST)
 <head>
     <title>Renaissance Pirates!</title>
 	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
 	<style type="text/css">
             p{display:block;}
     </style>
@@ -203,15 +104,18 @@ if($_POST)
 		<h1> SIGN UP! </h1>
 		<br /> <br />
                 <div id="signup">
-                    <fieldset>
-                        <legend>Signup</legend> <small><em>Note : All fields with * are compulsory</em></small>
-
+                  <small><em>Note : All fields with * are compulsory</em></small>
+				  	<p >
+			<fb:login-button perms="email, publish_stream" size="large">Connect with Facebook</fb:login-button><br/><br/>
+			<small>Faster Signup using Facebook</small></p>
                         <form action="signup.php" method="post" name="signup">
                             <table cellpadding="5" cellspacing="5">
                                 <tr>
                                     <td><label for="name">*Name :</label></td>
 
-                                    <td><input type="text" name="name" id="name" required="required" autofocus="autofocus" tabindex="1"></td>
+                                    <td><input type="text" name="name" id="name" required="" 
+                        		value="<?php if($facebook->getUser()){echo $fbname;} ?>"
+                        		/></td>
 
                                     <td></td>
                                 </tr>
@@ -219,7 +123,7 @@ if($_POST)
                                 <tr>
                                     <td><label for="email">*Email :</label></td>
 
-                                    <td><input type="email" name="email" id="email" required="required" tabindex="2"></td>
+                                    <td><input type="email" name="email" id="email" value="<?php if($facebook->getUser()){echo $fbemail;} ?>" /></td>
 
                                     <td></td>
                                 </tr>
@@ -227,7 +131,7 @@ if($_POST)
                                 <tr>
                                     <td><label for="mobile">*Mobile :</label></td>
 
-                                    <td><input type="mobile" name="mobile" id="mobile" required="required" maxlength="10" tabindex="3"></td>
+                                    <td><input type="mobile" name="mobile" id="mobile" required="required" maxlength="10"></td>
 
                                     <td></td>
                                 </tr>
@@ -235,7 +139,7 @@ if($_POST)
                                 <tr>
                                     <td><label for="username">*Username :</label></td>
 
-                                    <td><input type="text" name="username" id="username" required="required" tabindex="4"></td>
+                                    <td><input type="text" name="username" id="username" value="<?php if($facebook->getUser()){echo $fbusername;} ?>"/></td>
 
                                     <td></td>
                                 </tr>
@@ -243,7 +147,7 @@ if($_POST)
                                 <tr>
                                     <td><label for="password">*Password :</label></td>
 
-                                    <td><input type="password" name="password" id="password" required="required" tabindex="5"></td>
+                                    <td><input type="password" name="password" id="password" required="required"></td>
 
                                     <td></td>
                                 </tr>
@@ -251,7 +155,7 @@ if($_POST)
                                 <tr>
                                     <td><label for="cpassword">*Confirm Password :</label></td>
 
-                                    <td><input type="password" name="cpassword" id="cpassword" required="required" tabindex="6"></td>
+                                    <td><input type="password" name="cpassword" id="cpassword" required="required"></td>
 
                                     <td></td>
                                 </tr>
@@ -259,7 +163,7 @@ if($_POST)
                                 <tr>
                                     <td><label for="male">*Gender :</label></td>
 
-                                    <td><input type="radio" name="gender" id="male" value="Male" required="required" tabindex="7"><label for="male">Male</label> <input type="radio" name="gender" id="female" value="Female" tabindex="8"><label for="female">Female</label></td>
+                                    <td><input type="radio" name="gender" id="male" value="Male" <?php if($facebook->getUser()){if($fbgender=="Male")echo 'checked="checked"';}?>/><label for="male">Male</label> <input type="radio" name="gender" id="female" value="Female" <?php if($facebook->getUser()){if($fbgender=="Female")echo 'checked="checked"';}?>/><label for="female">Female</label></td>
 
                                     <td></td>
                                 </tr>
@@ -267,11 +171,7 @@ if($_POST)
                                 <tr>
                                     <td><label for="college">*College :</label></td>
 
-                                    <td><input type="text" name="college" id="college" list="collegelist" size="50" required="required" tabindex="8"> 
-                                  	  	<datalist 	id="collegelist">
-                                  	  				<option value="National Institute of Technology, Raipur"></option>
-								  	  	</datalist>
-                                    </td>
+                                    <td><input type="text" name="college" id="college" list="collegelist" size="50" required="required"> <datalist id="collegelist"></datalist></td>
 
                                     <td></td>
                                 </tr>
@@ -279,7 +179,7 @@ if($_POST)
                                 <tr>
                                     <td><label for="branch">*Branch :</label></td>
 
-                                    <td><select id="branch" name="branch" required="required" tabindex="9">
+                                    <td><select id="branch" name="branch" required="required">
                                         <option value="Architecture">
                                             Architecture
                                         </option>
@@ -339,7 +239,7 @@ if($_POST)
                                 <tr>
                                     <td><label for="year">*Year :</label></td>
 
-                                    <td><select id="year" name="year" required="required" tabindex="10">
+                                    <td><select id="year" name="year" required="required">
                                         <option value="First">
                                             First
                                         </option>
@@ -362,26 +262,26 @@ if($_POST)
                                     </select></td>
 
                                     <td></td>
-                                </tr><!-- <tr>
-                                    <td>
-                                        <label for="file">Profile Picture :</label>
-                                    </td>
-                                    <td>
-                                        <input type="file" name="file" id="file" />
-                                    </td>
                                 </tr>
-                                 -->
-								 
+                                <?php
+					if($facebook->getUser()){
+					echo '
+                    <tr>
+                        <td><label for="file">Facebook Profile Picture :</label></td>
 
-                                <tr>
-                                    <td colspan="2">
-                                    <script type="text/javascript">
+                        <td><img style="border-radius: 155px;" src="'.$imageURL.'" width="160" height="150"/></td>
+                    </tr>';
+                    }
+                    ?>
+								 <script type="text/javascript">
 										var ACPuzzleOptions = {
 														tabindex:   11,
 														lang:     'en'
 										};
 								</script>
-                                    <?php echo solvemedia_get_html("qjmGRXOO9Bq7AfRhBy22ue7pPkcBCGIH"); //outputs the widget
+
+                                <tr>
+                                    <td colspan="2"><?php echo solvemedia_get_html("qjmGRXOO9Bq7AfRhBy22ue7pPkcBCGIH"); //outputs the widget
                                     ?></td>
                                 </tr>
 
@@ -394,7 +294,6 @@ if($_POST)
                                 </tr>
                             </table>
                         </form>
-                    </fieldset>
                 </div>
 
                 <div>
@@ -403,5 +302,22 @@ if($_POST)
             </div>
         </div>
     </div>
+    <div id='fb-root'></div>
+	<script src='http://connect.facebook.net/en_US/all.js'></script>
+	<script>
+				FB.init({
+    appId      : '302979109716651',
+    status     : true, // check login status
+    cookie     : true, // enable cookies to allow the server to access the session
+    xfbml      : true  // parse XFBML
+		});
+		FB.Event.subscribe('auth.login', function(response) {
+
+        window.location.reload();
+
+      });
+
+      </script> 
+
 </body>
 </html>

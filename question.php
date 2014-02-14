@@ -1,7 +1,9 @@
 <?php
+ob_start();
+session_start();
 require('connect.php');
 if(isset($_POST['ans']) && isset($_POST['submit'])){
-	$ans = mysqli_real_escae_string($con, $_POST['ans']);
+	$ans = mysqli_real_escape_string($con, $_POST['ans']);
 	$ans=trim(preg_replace('/\s+/','', $ans));
 	$ans=str_replace(' ', '', $ans);
 	$ans=str_replace('-', '', $ans);
@@ -23,6 +25,14 @@ if(isset($_POST['ans']) && isset($_POST['submit'])){
 	$r3=mysqli_query($con, $s3);
 	$rw=mysqli_fetch_array($r3);
 	//echo 'String='.$s3.'<br/>'.$rw[0];
+	
+	/*Debugging Module Starts from here*/
+	/*echo 'Answer='.$ans.'<br/>DB answer='.$row['ans'].'<br/>Question Number='.$qnum.'<br/>';
+	if($ans == $row['ans']){echo 'Answers match';}else{echo 'Answers dont match';}
+	echo '<br/>String Compare Result'.strcmp($ans, $row['ans']);
+	die();*/
+	/*Debugging Module ends here*/
+	
 	if($rw[0]=== '1')
 	{
 		echo '<strong>Already Answered</strong><br/>';
@@ -34,7 +44,7 @@ if(isset($_POST['ans']) && isset($_POST['submit'])){
 		{
 			$scr = $row1['score'] + $row['points'];
 			$i=1;
-			while($i<=10)
+			while($i<=30)
 			{
 				$qno1='q'.$i;
 				if($row1[$qno1]=== '2')
@@ -47,7 +57,7 @@ if(isset($_POST['ans']) && isset($_POST['submit'])){
 			echo '<br/><strong>Correct Answer</strong>';
 			//echo $s1;die();
 			mysqli_query($con,$s1);
-			header('refresh:2;home.php');
+			header('refresh:1;home.php');
 		}
 	}
 }
@@ -102,3 +112,4 @@ if($_GET){
     </div>
 </body>
 </html>
+<?php ob_flush();?>

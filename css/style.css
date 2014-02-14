@@ -55,15 +55,15 @@ body {
 	text-align:center;
 }
 
-quespanel>#q1{
+#quespanel>#q1{
 	height : 300px;
 	overflow : auto;
 	width : 150px;
 }
 #main_content>#q1{
-	//height : 40%;
-	height: 100%;
+	height : 10%;
 	overflow : auto;
+	height : 600px;
 }
 #q1::-webkit-scrollbar {  
 	width: 6px;  

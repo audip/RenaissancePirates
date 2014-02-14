@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require_once('solvemedialib.php');
 //require('connect.php');
 require('serverinfo.php');
@@ -11,7 +12,7 @@ require_once('fb.php');
     <link href='http://fonts.googleapis.com/css?family=Merienda' rel='stylesheet' type='text/css' />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-    <title>Renaissance Pirates | Admin Panel </title>
+    <title>Eclectika Signup</title>
     <style type="text/css">
     .font,p,footer,header,li,h1,h2,h3,h4,h5,h6{
     font-family:Merienda;
@@ -149,7 +150,7 @@ if($_POST)
 				{
 					$otp=$fbid;
 					$pic=$imageURL;
-					$q4="INSERT INTO stuinfo VALUES('','$name','$username','$password','$college','$mobile','$email','$gender','$branch','$year','$pic','$otp')";
+					$q4="INSERT INTO stuinfo VALUES('','$name','$username','$password','$college','$mobile','$email','$gender','$branch','$year','$pic','$otp','1')";
 					//echo $q4;die();
 					mysqli_query($con, $q4);
 					$link='<a href="http://eclectika.org/verify.php?otp='.$otp.'">Verify Email</a>';
@@ -166,12 +167,6 @@ if($_POST)
 
 ?>		
 			<p >
-			<?php 
-					if($facebook->getUser())
-					{
-						
-					}
-			?>
 			<fb:login-button perms="email, publish_stream" size="large">Connect with Facebook</fb:login-button><br/><br/>
 			<small style="color:#e1e1e1;">Faster Signup using Facebook</small></p>
             <form action="reg.php" method="post" name="signup">
@@ -341,7 +336,14 @@ if($_POST)
                     ?>
 
                     <tr>
-                        <td colspan="2"><?php echo solvemedia_get_html("qjmGRXOO9Bq7AfRhBy22ue7pPkcBCGIH"); //outputs the widget
+                        <td colspan="2">
+                        <script type="text/javascript">
+										var ACPuzzleOptions = {
+														tabindex:   11,
+														lang:     'en'
+										};
+								</script>
+                        <?php echo solvemedia_get_html("qjmGRXOO9Bq7AfRhBy22ue7pPkcBCGIH"); //outputs the widget
 ?></td>
                     </tr>
 
@@ -379,3 +381,4 @@ if($_POST)
       </script> 
 </body>
 </html>
+<?php ob_flush(); ?>

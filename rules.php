@@ -1,9 +1,12 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
 <head>
     <title>Eclectika Pirates!</title>
 	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
 	<style>
 	
 		.myclass:before{
@@ -24,7 +27,7 @@
             <ul id="navbar">
 				<li id="home"><a href="home.php">Home</a></li>
 				<li id="profile"><a href="profile.php">My Profile</a></li>
-				<li id="play"><a href="home.php">Renaissance Pirates</a></li>
+				<li id="play"><a href="home.php">Rejoice da Renaissance</a></li>
 				<li id="rules"><a href="rules.php">Rules</a></li>
 				<li id="contacts"><a href="contact.php">Contacts</a></li>
 			</ul>
