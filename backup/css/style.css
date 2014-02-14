@@ -1,0 +1,399 @@
+@font-face {
+    font-family: 'high_tower_textregular';
+    src: url('../fonts/htowert-webfont.eot');
+    src: url('../fonts/htowert-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/htowert-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {
+	background-image:url(../img/body_bg.jpg);
+	font-family: 'high_tower_textregular',cursive,sans-serif;
+	font-size: 17px;
+}
+
+.wrapper {
+	background-image:url(../img/bg1.jpg);
+	background-size:cover;
+	width:80%;
+	margin:0 auto;
+	height:1400px;
+}
+
+#sidebar {
+	width:20%;
+	float:left;
+	margin-left:5%;
+}
+
+#header {
+	width:100%;
+	margin: 20% 0px 0px 0px;
+	text-align:center;
+}
+
+#leaderboard {
+	float: right;
+	text-align:center;
+	width:18%;
+	padding-left: 2%;
+}
+
+#quespanel {
+	width: 18%;	
+	padding-right: 2%;
+}
+
+#header li {
+	display:inline;
+	margin:0 auto;
+}
+
+#ques {
+	text-align:center;
+}
+
+quespanel>#q1{
+	height : 300px;
+	overflow : auto;
+	width : 150px;
+}
+#main_content>#q1{
+	height : 40%;
+	overflow : auto;
+}
+#q1::-webkit-scrollbar {  
+	width: 6px;  
+}  
+#q1::-webkit-scrollbar-track {  
+    background-color: #b8a779;  
+    border-left: 1px solid #ccc;  
+}  
+#q1::-webkit-scrollbar-thumb {  
+    background-color: #97805f;
+}  
+#q1::-webkit-scrollbar-thumb:hover {  
+    background-color: #68523a;  
+}
+
+
+#main_content {
+	width:60%;
+	float:left;
+	vertical-align: middle;
+}
+
+#navbar {
+	height:30px;
+	padding-top:20px;
+	padding-left:0;
+	text-transform:uppercase;
+}
+
+#home {
+	background-image:url(../img/home.jpg);
+	background-size:100% 100%;
+	margin:0 -7px 0 -6px;
+}
+
+#home a,#profile a,#play a,#rules a,#contacts a {
+	text-decoration:none;
+	color:#705b3b;
+}
+
+#home,#profile,#play,#rules,#contacts {
+	padding:10px 30px;
+}
+
+#profile {
+	background-image:url(../img/myprofile.jpg);
+	background-size:100% 100%;
+	margin:0 -7px 0 -6px;
+}
+
+#rules {
+	background-image:url(../img/myprofile.jpg);
+	background-size:100% 100%;
+	margin:0 -7px 0 -6px;
+}
+
+#contacts {
+	background-image:url(../img/home.jpg);
+	background-size:100% 100%;
+	margin:0 -7px 0 -6px;
+}
+
+#play {
+	background-image:url(../img/tag.png);
+	background-size:100% 100%;
+	background-origin:padding-box;
+	margin:0 -3px 0 2px;
+	height:200px;
+	padding:15px 45px;
+}
+#userdetails {
+	background-image:url(../img/header.png);
+	background-size:100% 100%;
+	height:150px;
+	width:90%;
+	margin:50px auto -40px auto;
+	padding-left:0;
+	padding-top:1px;
+}
+.bold {
+	font-weight:700;
+}
+
+.disguise {
+	cursor:pointer;
+}
+
+.disguise:hover {
+	cursor:pointer;
+	text-decoration:underline;
+	color:#fff;
+	-webkit-transition:color 1s ease-out;
+}
+
+#userdetails table {
+	padding-left:35px;
+	padding-top:35px;
+	margin:20px auto;
+	text-align:center;
+	font-variant:small-caps;
+}
+
+#container {
+	margin: 0px auto 0px auto;
+	text-align:center;
+	width:85%;
+	padding:0;
+}
+
+footer {
+	clear:both;
+	margin:0 auto;
+	width:90%;
+	bottom:-5px;
+	padding-top:40px;
+	margin-top:30px;
+}
+
+#main_content {
+	line-height:2em;
+	margin-top:0px;
+	padding-top:0px;
+	float: left;
+	text-align: center;
+}
+
+/*SHRINK*/
+.shrink img {
+	height:140px;
+	width:140px;
+	-webkit-transition:all 1s ease;
+	-moz-transition:all 1s ease;
+	-o-transition:all 1s ease;
+	-ms-transition:all 1s ease;
+	transition:all 1s ease;
+	margin:0 25px;
+}
+
+.shrink img:hover {
+	width:130px;
+	height:130px;
+}
+
+.contact {
+	width:80%;
+	margin:20px auto;
+	padding:20px 0;
+	text-align:center;
+}
+
+.shrink {
+	display:inline-block;
+	margin-left:0 40px;
+}
+
+.capital {
+	text-transform:capitalize;
+}
+
+#social {
+	text-align:center;
+	margin:0 auto;
+	height:100px;
+}
+
+#social img {
+	padding-left:20px;
+	margin-right:40px;
+}
+
+.anc {
+	cursor:pointer;
+}
+
+.logout {
+	background-color:red;
+	padding:7px 15px;
+	color:#fff;
+	text-decoration:none;
+}
+
+.logout:hover {
+	background-color:lighten(red,10%);
+	padding:7px 15px;
+	color:#fff;
+	text-decoration:underline;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	text-align:center;
+}
+
+.contact {
+	width:90%;
+}
+
+.contact td {
+	text-align:center;
+}
+
+.big {
+	font-size:24px;
+}
+
+.soc {
+	list-style:none;
+	text-align:center;
+}
+
+.soc li {
+	display:inline;
+	float:left;
+}
+
+.soc li a {
+	display:block;
+	height:48px;
+	width:48px;
+	padding-right:10px;
+	position:relative;
+	text-decoration:none;
+}
+
+#css3:hover li {
+	opacity:.2;
+}
+
+#css3 li {
+	-webkit-transition-property:opacity;
+	-webkit-transition-duration:500ms;
+	-moz-transition-property:opacity;
+	-moz-transition-duration:500ms;
+}
+
+#css3 li a strong {
+	opacity:0;
+	-webkit-transition-property:opacity,top;
+	-webkit-transition-duration:300ms;
+	-moz-transition-property:opacity,top;
+	-moz-transition-duration:300ms;
+}
+
+#css3 li:hover {
+	opacity:1;
+}
+
+#css3 li:hover a strong {
+	opacity:1;
+	top:10px;
+}
+
+#mail{
+	height: 25%;
+	overflow: auto;
+}
+
+#mail::-webkit-scrollbar {  
+	width: 6px;  
+}  
+#mail::-webkit-scrollbar-track {  
+    background-color: #b8a779;  
+    border-left: 1px solid #ccc;  
+}  
+#mail::-webkit-scrollbar-thumb {  
+    background-color: #97805f;
+}  
+#mail::-webkit-scrollbar-thumb:hover {  
+    background-color: #68523a;  
+}
+
+#mail table {
+	margin:0 auto;
+	width:350px;
+}
+
+#container {
+	margin-top:-100px;
+}
+
+#container h1 {
+	margin-top:-20px;
+}
+
+input[type=submit],.normal {
+	background-color:red;
+	border:0;
+	padding:10px 20px;
+	color:#fff;
+	font-size:20px;
+	text-decoration:none;
+}
+
+a {
+	text-decoration:none;
+	color:#fff;
+}
+
+input[type=submit]:hover,.normal:hover {
+	cursor:pointer;
+	background-color:#cf1111;
+}
+
+#ques td>button {
+	border:0;
+	background:transparent;
+	font-style:italic;
+}
+
+#ques td>button:hover {
+	-webkit-transition:color 1s ease-out;
+	-moz-transition:color 1s ease-out;
+	-o-transition:color 1s ease-out;
+	-ms-transition:color 1s ease-out;
+	transition:color 1s ease-out;
+	color:#fff;
+	font-style:italic;
+	text-decoration:underline;
+}
+#qdesc{
+	text-decoration: underline;
+	padding: 5px 0px;
+	margin: 10px auto;
+}
+.topbottom{
+	margin: 20px auto;
+}
+.underline{
+	text-decoration: underline;
+}
+#foottext{
+	font-style: italic;
+	font-family: Montserrat, sans-serif;
+	text-shadow: 0px 1px 0px #999, 0px 1.5px 0px #888, 0px 2px 0px #777;
+}
