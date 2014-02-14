@@ -32,7 +32,7 @@ if(isset($_POST['ans']) && isset($_POST['submit'])){
 	echo '<br/>String Compare Result'.strcmp($ans, $row['ans']);
 	die();*/
 	/*Debugging Module ends here*/
-	
+	$unlocked=30;
 	if($rw[0]=== '1')
 	{
 		echo '<strong>Already Answered</strong><br/>';
@@ -44,7 +44,7 @@ if(isset($_POST['ans']) && isset($_POST['submit'])){
 		{
 			$scr = $row1['score'] + $row['points'];
 			$i=1;
-			while($i<=30)
+			while($i<=$unlocked)
 			{
 				$qno1='q'.$i;
 				if($row1[$qno1]=== '2')
@@ -53,7 +53,14 @@ if(isset($_POST['ans']) && isset($_POST['submit'])){
 				}
 				$i++;
 			}
-			$s1 = "UPDATE quizuser SET score='$scr', q$qno='1', q$i='0' WHERE username='$username'";
+			//echo 'q$i'."q$i";
+			if($i<$unlocked)
+			{
+					$s1 = "UPDATE quizuser SET score='$scr', q$qno='1', q$i='0' WHERE username='$username'";
+			}
+			else{
+					$s1 = "UPDATE quizuser SET score='$scr', q$qno='1' WHERE username='$username'";
+			}
 			echo '<br/><strong>Correct Answer</strong>';
 			//echo $s1;die();
 			mysqli_query($con,$s1);
@@ -103,8 +110,8 @@ if($_GET){
                         <span class="bold underline">Ques.</span> '.$ques.'<br/>
                         <label for="ans" class="bold underline">Key (Answer):</label>
                         <input type="hidden" value='.$q.' name = "qno" />
-                        <input type="text" maxlength="50" name="ans" id="ans" required="required"/>
-                        <br/><br/><input type="submit" value="Submit" name="submit" id="submit"/>
+                        <input type="text" maxlength="50" name="ans" id="ans" required="required" tabindex="1"/>
+                        <br/><br/><input type="submit" value="Submit" name="submit" id="submit" tabindex="2"/>
                         </p>';
 }
 ?>

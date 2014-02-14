@@ -1,6 +1,8 @@
 <?php
 require_once('solvemedialib.php');
 require('connect.php');
+ob_start();
+session_start();
 //include the Solve Media library
 ?>
 
@@ -137,12 +139,13 @@ if($_POST)
 				//$password=md5($password);
 				$str="SELECT username, password FROM rpadmin WHERE username='$username'";
 				$result = mysqli_query($con, $str);
-				if(mysqli_num_rows($result)==1)
-				{
-					/*if (!$result) {
+				if (!$result) {
   					printf("Error: %s\n", mysqli_error($con));
     					exit();
-				}*/
+				   }
+				if(mysqli_num_rows($result)==1)
+				{
+					
 					$row=mysqli_fetch_array($result);
 					if($username===$row['username'] && $password===$row['password'])
 					{

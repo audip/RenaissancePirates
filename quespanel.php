@@ -11,7 +11,7 @@
 	$r12=mysqli_query($con, $q12);
 	$i=1;
 	$row=mysqli_fetch_array($r12);
-	$unlocked=20;
+	$unlocked=30;
 	while($i<=$unlocked)
 	{
 		$qno='q'.$i;

@@ -134,7 +134,7 @@ if($_POST)
                     </tr>
 
                     <tr>
-                        <td colspan="3" align="center"><input type="submit" name="submit" value="LOGIN"></td>
+                        <td colspan="3" align="center"><input type="submit" name="submit" value="LOGIN" tabindex="4"></td>
                     </tr>
                 </table><?php
 //require_once("solvemedialib.php");   //include the Solve Media library

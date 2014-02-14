@@ -37,9 +37,8 @@
         //echo $q0;
         //die();
         mysqli_query($con, $q0);
-        $q01="SELECT status from stuinfo WHERE username='$username'";
-        $r01=mysqli_query($con, $q01);
-        $row2=mysqli_fetch_array($r01);
+        $q01="UPDATE stuinfo SET status='1' WHERE username='$username'";
+        mysqli_query($con, $q01);
         $_SESSION['status']='1';
         header('location:home.php');
     }
