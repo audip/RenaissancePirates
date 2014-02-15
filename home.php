@@ -26,18 +26,18 @@ else
 	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="refresh" content="120;home.php"/>
-    <meta name="keywords" content="Eclectika 2014, Treasure Hunt, Eclectika, Online Game, Pre-Eclectika Event">
+    <meta name="keywords" content="Eclectika 2014, Treasure Hunt, Eclectika, Renaissance, Pirates, Online Game, Pre-Eclectika Event, Renaisance Pirates">
     <meta name="author" content="Aditya Purandare http://plus.google.com/+AdityaPurandare,
             Krishna Mohan Srivastava https://plus.google.com/112976571750925733219, Mansi Jain mansijain.nitrr@gmail.com">
     <meta name="robots" content="noindex,nofollow">
     <meta name="google" content="notranslate"><!--Dublin Core Start=-->
     <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
-    <meta name="DC.Title" content="Treasure Hunt Home">
+    <meta name="DC.Title" content="Renaissance Pirates">
     <meta name="DC.Title" content="Eclectika Online Game">
     <meta name="DC.Creator" content="Aditya Purandare">
     <meta name="DC.Creator" content="Krishna Mohan Srivastava">
     <meta name="DC.Creator" content="Mansi Jain">
-    <meta name="DC.Subject" content="Eclectika's Online Game for creating a buzz & fever amongst Students ">
+    <meta name="DC.Subject" content="Renaissance Pirates Eclectika's Online Game for creating a buzz & fever amongst Students ">
     <meta name="DC.Description" content="Pre-Eclectika Event, launched just before Eclectika for Rampaging an Eclectika Fever in Raipur & vicinity.">
     <meta name="DC.Publisher" content="Team Eclectika">
     <meta name="DC.Date" content="2014-01">

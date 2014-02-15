@@ -1,6 +1,6 @@
 <?php
 ob_start();
-session_start();
+//session_start();
 require('connect.php');
 if(isset($_POST['ans']) && isset($_POST['submit'])){
 	$ans = mysqli_real_escape_string($con, $_POST['ans']);
