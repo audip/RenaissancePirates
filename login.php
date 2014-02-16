@@ -19,11 +19,11 @@ if($_POST)
 		$_POST["adcopy_challenge"],
 		$_POST["adcopy_response"],
 		$hashkey);
-	if (!$solvemedia_response->is_valid) {
+	//if (!$solvemedia_response->is_valid) {
 		//handle incorrect answer
-		print "Error: ".$solvemedia_response->error;
-	}
-	else {
+		//print "Error: ".$solvemedia_response->error;
+	//}
+	//else {
 		//process form here
 		if(isset($_POST['username'])&&isset($_POST['password'])&&isset($_POST['submit']))
 		{
@@ -53,7 +53,7 @@ if($_POST)
 				}
 			}
 		}
-	}
+	//}
 }
 //include the Solve Media library
 
@@ -128,9 +128,9 @@ if($_POST)
 				lang:	    'en'
 	};
   </script><?php
-							require_once("solvemedialib.php");
-							echo solvemedia_get_html("qjmGRXOO9Bq7AfRhBy22ue7pPkcBCGIH"); //outputs the widget
-?></td>
+							/*require_once("solvemedialib.php");
+							echo solvemedia_get_html("qjmGRXOO9Bq7AfRhBy22ue7pPkcBCGIH"); outputs the widget*/
+							?></td>
                     </tr>
 
                     <tr>

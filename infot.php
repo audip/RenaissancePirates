@@ -34,7 +34,7 @@
 	</head>
 <body>
 
-	<h2>Grab an IT Engineer (Hint: Ask them to Read the 'Page Source')</h2>
+	<h2>Grab an IT Engineer</h2>
 	
 	<h3>This is a very simple PHP Hello World Program:</h3>
 	

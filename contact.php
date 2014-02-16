@@ -16,6 +16,12 @@ if($_POST)
 			mysqli_query($con, $q24);
 		}
 	}
+	if(isset($_SESSION['username']))
+	{
+		$username=$_SESSION['username'];
+		$q18="SELECT name, email, mobile FROM stuinfo where username='$username'";
+		$r18=mysqli_query($con, $q18);
+	}
 }
 ?>
 <html>

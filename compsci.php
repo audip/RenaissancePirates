@@ -33,15 +33,15 @@
 </head>
 
 <body>
-    <h2>Grab a CS Engineer (Hint: Ask them to Lookout for 'Comments' in Code)</h2>
+    <h2>Grab a CS Engineer</h2>
 
     <h3>This is a very Complex C++ Program:</h3>
 
     <div id="code">
         <pre>
-#include 
-#include 
-#include 
+#include <iostream>
+#include <ctype>
+#include <dos>
 #define GET_VAL( val, type ) \
     {                                                   \
         ASSERT( ( pIP + sizeof(type) ) &lt;= pMethodEnd ); \

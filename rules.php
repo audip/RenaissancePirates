@@ -45,11 +45,13 @@
 		<h1> AHOY! </h1>
 		<br /> <br />
 		
-			<table style="border : 1px #e0e0e0 solid">
+			<table >
 
 				<tr><th colspan="2" align="center">Rules :</th></tr>
 				<tr><th>&nbsp;</th></tr>
 				<tr><td>&bull; </td><td> Ye be sailin' 'lone in this journey.</td></tr>
+				<tr><th>&nbsp;</th></tr>
+				<tr><td>&bull; </td><td> Starting Day 1, 10 quest'ns g't unlock'd to find da treas're each day.</td></tr>
 				<tr><th>&nbsp;</th></tr>
 				<tr><td>&bull; </td><td> Ye be th' leader 'f all 'pirates' if ye find keys of all th' fifty clues provided to ya.</td></tr>
 				<tr><th>&nbsp;</th></tr>
@@ -58,6 +60,8 @@
 				<tr><td>&bull; </td><td> Ain't no clue of same difficulty. Yer scores be increas'd accordin'ly.</td></tr>
 				<tr><th>&nbsp; </th></tr>
 				<tr><td>&bull; </td><td> If yer found hornswaggling or in case of mutiny, ye'll be marooned from th' ship.</td></tr>
+				<tr><th>&nbsp;</th></tr>
+				<tr><td>&bull; </td><td> 'Hints' to be follow'd prop'ly to get da answer.</td></tr>
 				<tr><th>&nbsp;</th></tr>
 				<tr><th>&nbsp;</th></tr>
 				

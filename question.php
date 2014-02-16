@@ -26,11 +26,25 @@ if(isset($_POST['ans']) && isset($_POST['submit'])){
 	$rw=mysqli_fetch_array($r3);
 	//echo 'String='.$s3.'<br/>'.$rw[0];
 	
+	/*Decrypting Answer*/
+	/*$key_value = "KEYVALUE";
+	$encrypted_text=$row['ans'];	
+	$row['ans'] = mcrypt_ecb(MCRYPT_DES, $key_value, $encrypted_text, MCRYPT_DECRYPT); 
+	echo $row['ans'];*/
+	/*Decrypt Module ends here*/
+	
+	/*Encrypting Answer*/
+	$key_value = "KEYVALUE";
+	$plain_text=$ans;	
+	//$ans=md5($ans);
+	//echo $ans;
+	/*Encrypt Module ends here*/
+	
 	/*Debugging Module Starts from here*/
-	/*echo 'Answer='.$ans.'<br/>DB answer='.$row['ans'].'<br/>Question Number='.$qnum.'<br/>';
+	echo 'Answer='.$ans.'<br/>DB answer='.$row['ans'].'<br/>Question Number='.$qnum.'<br/>';
 	if($ans == $row['ans']){echo 'Answers match';}else{echo 'Answers dont match';}
 	echo '<br/>String Compare Result'.strcmp($ans, $row['ans']);
-	die();*/
+	die();
 	/*Debugging Module ends here*/
 	$unlocked=30;
 	if($rw[0]=== '1')
