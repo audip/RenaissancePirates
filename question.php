@@ -1,6 +1,5 @@
 <?php
 ob_start();
-//session_start();
 require('connect.php');
 if(isset($_POST['ans']) && isset($_POST['submit'])){
 	$ans = mysqli_real_escape_string($con, $_POST['ans']);
@@ -36,15 +35,15 @@ if(isset($_POST['ans']) && isset($_POST['submit'])){
 	/*Encrypting Answer*/
 	$key_value = "KEYVALUE";
 	$plain_text=$ans;	
-	//$ans=md5($ans);
+	$ans=md5($ans);
 	//echo $ans;
 	/*Encrypt Module ends here*/
 	
 	/*Debugging Module Starts from here*/
-	echo 'Answer='.$ans.'<br/>DB answer='.$row['ans'].'<br/>Question Number='.$qnum.'<br/>';
+	/*echo 'Answer='.$ans.'<br/>DB answer='.$row['ans'].'<br/>Question Number='.$qnum.'<br/>';
 	if($ans == $row['ans']){echo 'Answers match';}else{echo 'Answers dont match';}
 	echo '<br/>String Compare Result'.strcmp($ans, $row['ans']);
-	die();
+	die();*/
 	/*Debugging Module ends here*/
 	$unlocked=30;
 	if($rw[0]=== '1')
@@ -68,12 +67,13 @@ if(isset($_POST['ans']) && isset($_POST['submit'])){
 				$i++;
 			}
 			//echo 'q$i'."q$i";
+			$date = strtotime(date('Y-m-d H:s'));
 			if($i<$unlocked)
 			{
-					$s1 = "UPDATE quizuser SET score='$scr', q$qno='1', q$i='0' WHERE username='$username'";
+					$s1 = "UPDATE quizuser SET score='$scr', q$qno='1', q$i='0', time='$date' WHERE username='$username'";
 			}
 			else{
-					$s1 = "UPDATE quizuser SET score='$scr', q$qno='1' WHERE username='$username'";
+					$s1 = "UPDATE quizuser SET score='$scr', q$qno='1', time='$date' WHERE username='$username'";
 			}
 			echo '<br/><strong>Correct Answer</strong>';
 			//echo $s1;die();
@@ -121,12 +121,15 @@ if($_GET){
                         			echo '<img src="'.$row['image'].'" alt="Eclectika Online Game Image" width="80%" class="topbottom"/>';
                         	}
                        echo '<br/>
-                        <span class="bold underline">Ques.</span> '.$ques.'<br/>
-                        <label for="ans" class="bold underline">Key (Answer):</label>
-                        <input type="hidden" value='.$q.' name = "qno" />
-                        <input type="text" maxlength="50" name="ans" id="ans" required="required" tabindex="1"/>
-                        <br/><br/><input type="submit" value="Submit" name="submit" id="submit" tabindex="2"/>
-                        </p>';
+                        <span class="bold underline">Ques.</span> '.$ques.'<br/>';
+                        if($q!=100)
+                        {
+                        		echo '<label for="ans" class="bold underline">Key (Answer):</label>
+                        		 <input type="text" maxlength="50" name="ans" id="ans" required="required" tabindex="1"/>
+								 <input type="hidden" value='.$q.' name = "qno" />
+                        <br/><br/><input type="submit" value="Submit" name="submit" id="submit" tabindex="2"/>';
+                        }
+                       echo '</p>';
 }
 ?>
         </form>

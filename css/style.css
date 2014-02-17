@@ -414,3 +414,4 @@ input[type=submit]:hover,.normal:hover,.logout:hover{
         background-color: #3498db;
         font-family: 'high_tower_textregular', sans-serif;
         -webkit-transition: background-color 0.4s ease-out;
+        -moz-transition: background-color 0.4s ease-out;

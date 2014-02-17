@@ -20,7 +20,7 @@ else
 }
 
 
-$q1="SELECT quizuser.username, score, status FROM quizuser, stuinfo WHERE quizuser.username=stuinfo.username ORDER BY score DESC";
+$q1="SELECT quizuser.username, score, status FROM quizuser, stuinfo WHERE quizuser.username=stuinfo.username ORDER BY score DESC, time ASC";
 $r1=mysqli_query($con, $q1);
 $i=0;
 while($i<20 && $i<mysqli_num_rows($r1))

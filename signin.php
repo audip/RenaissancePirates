@@ -24,15 +24,17 @@
     {
         //Proceed with Game Home
         $username=$_SESSION['username'];
-        $q0="INSERT INTO quizuser VALUES('', '$username', '0',
-        '0','0','0', '0', 
+        $q0="INSERT INTO quizuser VALUES(
+        '', '$username', '0','0',
+        '0','','','','','','','','','','',
+        '0','0', '0', '0',
         '2', '2','2','2',
         	'2','2','2','2',        
         	'2', '2','2','2',
         '2', '2','2','2',
         	'2', '2','2','2',
         	'2', '2','2','2',
-        	'2', '2'
+        	'2', '2','0'
         	)";
         //echo $q0;
         //die();

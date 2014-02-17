@@ -1,8 +1,14 @@
 <?php
 require_once('solvemedialib.php');
 require('connect.php');
-header('refresh:20');
-//include the Solve Media library
+header('refresh:40');
+if(!isset($_SESSION['admin']))
+{
+    //header('location:index.php');
+}
+else{
+
+}
 ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -25,6 +31,8 @@ header('refresh:20');
                 <li><a href="feedback.php">Feedback</a></li>
 
                 <li><a href="questions.php">Question Bank</a></li>
+
+                <li><a href="progress.php">Progress</a></li>
 
                 <li><a href="logout.php">Logout</a></li>
             </ul>

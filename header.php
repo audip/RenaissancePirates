@@ -18,7 +18,7 @@
 		$row=mysqli_fetch_array($r8);
 		$name=$row['name'];
 		$score=$row['score'];
-		$q9="SELECT count(id) as rank FROM quizuser WHERE score>$score";
+		$q9="SELECT count(id) as rank FROM quizuser WHERE score>$score ORDER BY time ASC";
 		$r9=mysqli_query($con,$q9);
 		$q91="SELECT count(id)as total FROM quizuser";
 		$r91=mysqli_query($con, $q91);

@@ -44,6 +44,27 @@ else
     <meta name="DC.Type" content="InteractiveResource">
     <meta name="DC.Language" content="en">
     <meta name="DC.Coverage" content="India"><!--Dublin Core End-->
+    <script language="javascript">
+            function whichButton(event)
+            {
+                if (event.button==2)//RIGHT CLICK
+                {
+                    alert("Not Allow Right Click!");
+                }
+
+            }
+            function noCTRL(e)
+            {
+                var code = (document.all) ? event.keyCode:e.which;
+
+                var msg = "Sorry, this functionality is disabled.";
+                if (parseInt(code)==17) //CTRL
+                {
+                    alert(msg);
+                    window.event.returnValue = false;
+                }
+            }
+        </script>
 </head>
 
 <body>

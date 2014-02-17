@@ -13,10 +13,17 @@
 	$j=100;
 	$k=1;
 	$row=mysqli_fetch_array($r12);
-	$unlocked=15;
+	$unlocked=25;
 	while($i<=$unlocked)
 	{
 		$qno='q'.$i;
+		if($i>20)
+		{
+			if($row['q100']=='1')
+			{
+			}
+			else{break;}
+		}
 		if($row[$qno]=== '0' || $row[$qno]==='1')
 		//if($row[$qno]=== '0' || $row[$qno]==='1' || $row[$qno]==='2')
 		{
@@ -30,13 +37,13 @@
 							echo '<td>&nbsp;</td>';
 		echo	'</tr>';
 		}
-		if($i%10==0)
+		if($i==20)
 					{
 						echo '<tr>
 										<td class="disguise" data-field='.$i.'>
 										<button id="'.$j.'" class="ques">Task '.$k.'</button>
 										</td>';
-										if($row[$qno]==='1')
+										if($row['q100']==='1')
 											echo '<td>&#10003;</td>';
 										else
 											echo '<td>&nbsp;</td>';
