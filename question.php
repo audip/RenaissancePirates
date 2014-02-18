@@ -80,6 +80,9 @@ if(isset($_POST['ans']) && isset($_POST['submit'])){
 			mysqli_query($con,$s1);
 			header('refresh:1;home.php');
 		}
+			else{
+				echo 'Incorrect Answer. Try Again!';
+			}
 	}
 }
 ?>
@@ -122,8 +125,9 @@ if($_GET){
                         	}
                        echo '<br/>
                         <span class="bold underline">Ques.</span> '.$ques.'<br/>';
-                        if($q!=100)
+                        if($q!='100'&&$q!='101')
                         {
+                        		//echo $q;
                         		echo '<label for="ans" class="bold underline">Key (Answer):</label>
                         		 <input type="text" maxlength="50" name="ans" id="ans" required="required" tabindex="1"/>
 								 <input type="hidden" value='.$q.' name = "qno" />
