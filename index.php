@@ -3,7 +3,7 @@
 if(isset($_POST['submit']))
 {
 
-header('location:login.php');
+header('location:http://eclectika.org/quiz/login.php');
 
 }
 

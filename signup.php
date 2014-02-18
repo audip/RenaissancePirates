@@ -45,7 +45,7 @@ if($_POST)
 				{
 					$otp=$fbid;
 					$pic=$imageURL;
-					$q4="INSERT INTO stuinfo VALUES('','$name','$username','$password','$college','$mobile','$email','$gender','$branch','$year','$pic','$otp')";
+					$q4="INSERT INTO stuinfo VALUES('','$name','$username','$password','$college','$mobile','$email','$gender','$branch','$year','$pic','$otp','0')";
 					//echo $q4;die();
 					mysqli_query($con, $q4);
 					$link='<a href="http://eclectika.org/verify.php?otp='.$otp.'">Verify Email</a>';

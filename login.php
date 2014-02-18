@@ -9,55 +9,6 @@ if(isset($_SESSION['username']))
 else
 {
 }
-if($_POST)
-{
-	require_once("solvemedialib.php");
-	$privkey="arSuUTJHqxu1uarsXvuO6UyluliVw9Dq";
-	$hashkey="6CKg17T7.VmCnXxRZ3ARYmCEBP0Oit6-";
-	$solvemedia_response = solvemedia_check_answer($privkey,
-		$_SERVER["REMOTE_ADDR"],
-		$_POST["adcopy_challenge"],
-		$_POST["adcopy_response"],
-		$hashkey);
-	if (!$solvemedia_response->is_valid) {
-		//handle incorrect answer
-		print "Error: ".$solvemedia_response->error;
-	}
-	else {
-		//process form here
-		if(isset($_POST['username'])&&isset($_POST['password'])&&isset($_POST['submit']))
-		{
-			$username=mysqli_real_escape_string($con, $_POST['username']);
-			$password=mysqli_real_escape_string($con, $_POST['password']);
-			$email=$username;
-
-			if(!empty($username)&&!empty($password))
-			{
-				//$password=md5($password);
-				$str="SELECT username, password, id, email FROM stuinfo WHERE username='$username' OR email='$email'";
-				$result = mysqli_query($con, $str);
-				if(mysqli_num_rows($result)==1)
-				{
-					/*if (!$result) {
-  					printf("Error: %s\n", mysqli_error($con));
-    					exit();
-				}*/
-					$row=mysqli_fetch_array($result);
-					if(($username===$row['username'] || $email===$row['email']) && $password===$row['password'])
-					{
-						$_SESSION['username']=$row['username'];
-						$_SESSION['userid']=$row['id'];
-						echo 'Logged In';
-						header('location:signin.php');
-					}
-				}
-			}
-		}
-	}
-}
-//include the Solve Media library
-
-
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
@@ -91,6 +42,64 @@ if($_POST)
 
 		<center>
 		<h1> LOGIN PANEL </h1>
+		<?php 
+			if($_POST)
+{
+	require_once("solvemedialib.php");
+	$privkey="arSuUTJHqxu1uarsXvuO6UyluliVw9Dq";
+	$hashkey="6CKg17T7.VmCnXxRZ3ARYmCEBP0Oit6-";
+	$solvemedia_response = solvemedia_check_answer($privkey,
+		$_SERVER["REMOTE_ADDR"],
+		$_POST["adcopy_challenge"],
+		$_POST["adcopy_response"],
+		$hashkey);
+	if (!$solvemedia_response->is_valid) {
+		//handle incorrect answer
+		print "Error: ".$solvemedia_response->error;
+	}
+	else {
+		//process form here
+		if(isset($_POST['username'])&&isset($_POST['password'])&&isset($_POST['submit']))
+		{
+			$username=mysqli_real_escape_string($con, $_POST['username']);
+			$password=mysqli_real_escape_string($con, $_POST['password']);
+			$email=$username;
+
+			if(!empty($username)&&!empty($password))
+			{
+				//$password=md5($password);
+				$str="SELECT username, password, id, email FROM stuinfo WHERE username='$username' OR email='$email'";
+				$result = mysqli_query($con, $str);
+				if(mysqli_num_rows($result)==1)
+				{
+					/*if (!$result) {
+  					printf("Error: %s\n", mysqli_error($con));
+    					exit();
+				}*/
+					$row=mysqli_fetch_array($result);
+					if(($username===$row['username'] || $email===$row['email']))
+					{
+						if($password===$row['password'])
+						{
+							$_SESSION['username']=$row['username'];
+							$_SESSION['userid']=$row['id'];
+							echo 'Logged In';
+							header('location:signin.php');
+						}
+						else{
+							echo 'Incorrect Password';
+						}
+					}
+					else{
+						echo 'Incorrect Username';
+					}
+				}
+			}
+		}
+	}
+}
+
+		?>
 		<br /> <br />
             <form action="login.php" method="post" id="signin">
                 <table>
