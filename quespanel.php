@@ -22,7 +22,7 @@ $i=1;
 $j=100;
 $k=1;
 $row=mysqli_fetch_array($r12);
-$unlocked=30;
+$unlocked=35;
 while($i<=$unlocked)
 {
 	$qno='q'.$i;
@@ -33,7 +33,7 @@ while($i<=$unlocked)
 		}
 		else{break;}
 	}
-	if($row[$qno]=== '0' || $row[$qno]==='1')
+	if($row[$qno]=='0' || $row[$qno]=='1')
 		//if($row[$qno]=== '0' || $row[$qno]==='1' || $row[$qno]==='2')
 		{
 		echo '<tr>

@@ -182,10 +182,10 @@ session_start();
 			<input type="text" size="1" maxlength="1" readonly="readonly" value="K" />
 			<input type="text" size="1" maxlength="1"/>
 			<input type="text" size="1" maxlength="1"/>
-			<input type="text" size="1" maxlength="1" readonly="readonly" value="O"/>
+			<input type="text" size="1" maxlength="1" class="inputForm"/>
 			<input type="text" size="1" maxlength="1"/>
-			<input type="text" size="1" maxlength="1" />
-			<input type="text" size="1" maxlength="1"  class="inputForm"/>
+			<input type="text" size="1" maxlength="1"/>
+			<input type="text" size="1" maxlength="1" readonly="readonly" value="G"/>
 			<input type="text" size="1" maxlength="1"/>
 			<input type="text" size="1" maxlength="1"/>
 			<input type="text" size="1" maxlength="1" readonly="readonly" value="K"/>

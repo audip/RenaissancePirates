@@ -25,7 +25,7 @@ else
 	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="120;home.php"/>
+    <meta http-equiv="refresh" content="300;home.php"/>
     <meta name="keywords" content="Eclectika 2014, Treasure Hunt, Eclectika, Renaissance, Pirates, Online Game, Pre-Eclectika Event, Renaisance Pirates">
     <meta name="author" content="Aditya Purandare http://plus.google.com/+AdityaPurandare,
             Krishna Mohan Srivastava https://plus.google.com/112976571750925733219, Mansi Jain mansijain.nitrr@gmail.com">
