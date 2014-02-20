@@ -42,12 +42,12 @@ else
 
 		<center>
 		<h1> LOGIN PANEL </h1>
-		<?php 
-			if($_POST)
+		<?php
+if($_POST)
 {
 	require_once("solvemedialib.php");
-	$privkey="arSuUTJHqxu1uarsXvuO6UyluliVw9Dq";
-	$hashkey="6CKg17T7.VmCnXxRZ3ARYmCEBP0Oit6-";
+	$privkey="vjCJgx7qs-i6vMEPbOo19XFzQRXobZ8H";
+	$hashkey="W2.9SQDpg85ENTG1OsL-O.-L1UqpIU6k";
 	$solvemedia_response = solvemedia_check_answer($privkey,
 		$_SERVER["REMOTE_ADDR"],
 		$_POST["adcopy_challenge"],
@@ -99,7 +99,7 @@ else
 	}
 }
 
-		?>
+?>
 		<br /> <br />
             <form action="login.php" method="post" id="signin">
                 <table>
@@ -114,7 +114,7 @@ else
                     <tr>
                         <td colspan="3"><small><em>Username/Email used to signup for <a href="http://eclectika.org" target="_blank">Eclectika.org</a></em></small></td>
                     </tr>
-					
+
                     <tr>
                         <td><strong><label for="password"><sup>*</sup>Password :</label></strong></td>
 
@@ -137,9 +137,9 @@ else
 				lang:	    'en'
 	};
   </script><?php
-							require_once("solvemedialib.php");
-							echo solvemedia_get_html("qjmGRXOO9Bq7AfRhBy22ue7pPkcBCGIH"); //outputs the widget
-							?></td>
+require_once("solvemedialib.php");
+echo solvemedia_get_html("Yzv8vDKv1wEDtfGHAkHJvvXsJa4YcWm5"); //outputs the widget
+?></td>
                     </tr>
 
                     <tr>

@@ -5,8 +5,8 @@ require('connect.php');
 require_once('fb.php');
 if($_POST)
 {
-    $privkey="arSuUTJHqxu1uarsXvuO6UyluliVw9Dq";
-    $hashkey="6CKg17T7.VmCnXxRZ3ARYmCEBP0Oit6-";
+    $privkey="vjCJgx7qs-i6vMEPbOo19XFzQRXobZ8H";
+    $hashkey="W2.9SQDpg85ENTG1OsL-O.-L1UqpIU6k";
     $solvemedia_response = solvemedia_check_answer($privkey,
         $_SERVER["REMOTE_ADDR"],
         $_POST["adcopy_challenge"],
@@ -43,12 +43,12 @@ if($_POST)
             {
                 if($password===$cpassword)
 				{
-					$otp=$fbid;
+					$fb=$fbid;
 					$pic=$imageURL;
-					$q4="INSERT INTO stuinfo VALUES('','$name','$username','$password','$college','$mobile','$email','$gender','$branch','$year','$pic','$otp','0')";
+					$q4="INSERT INTO stuinfo VALUES('','$name','$username','$password','$college','$mobile','$email','$gender','$branch','$year','$pic','$fb','0')";
 					//echo $q4;die();
 					mysqli_query($con, $q4);
-					$link='<a href="http://eclectika.org/verify.php?otp='.$otp.'">Verify Email</a>';
+					$link='<a href="http://u8130180.nettech.net.in/quiz/verify.php?otp='.$otp.'">Verify Email</a>';
 					echo '<br/>Registration Complete!!';
 					//echo $link;
 					//mail();
@@ -137,7 +137,7 @@ if($_POST)
                                 </tr>
 
                                 <tr>
-                                    <td><label for="username">*Username :</label></td>
+                                    <td><label for="username">*Username :</label><br/><small>No Spaces in Username Please!</small></td>
 
                                     <td><input type="text" name="username" id="username" value="<?php if($facebook->getUser()){echo $fbusername;} ?>"/></td>
 
@@ -281,7 +281,7 @@ if($_POST)
 								</script>
 
                                 <tr>
-                                    <td colspan="2"><?php echo solvemedia_get_html("qjmGRXOO9Bq7AfRhBy22ue7pPkcBCGIH"); //outputs the widget
+                                    <td colspan="2"><?php echo solvemedia_get_html("Yzv8vDKv1wEDtfGHAkHJvvXsJa4YcWm5"); //outputs the widget
                                     ?></td>
                                 </tr>
 

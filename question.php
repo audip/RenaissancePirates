@@ -35,7 +35,7 @@ if(isset($_POST['ans']) && isset($_POST['submit'])){
 	/*Encrypting Answer*/
 	$key_value = "KEYVALUE";
 	$plain_text=$ans;	
-	$ans=md5($ans);
+	//$ans=md5($ans);
 	//echo $ans;
 	/*Encrypt Module ends here*/
 	
