@@ -35,7 +35,7 @@ if($_POST)
 			$j=1;
 			echo '<table>
 		                        <tr><th>Username</th><th>Score</th><th>Time</th>';
-			while($j<=30)
+			while($j<=35)
 			{
 				echo '<th>Q'.$j.'</th>';
 				$j++;

@@ -48,6 +48,12 @@
 				color: #1abc9c;
 				-webkit-transition: background-color 0.9s ease-out;
 			}
+			.foot{
+				background-color: rgba(0,0,0,0.4);
+				color: white;
+				padding: 5px auto;
+				margin: 0px auto;
+			}
     </style>
 
     <title></title>
@@ -81,7 +87,8 @@
 			header('refresh:3;home.php');
 		}
 		else{
-			echo '<span class="underline">Incorrect Answer / Already Answered</span>';
+			echo '<span class="underline">Incorrect Answer / Already Answered</span>
+			';
 		}
 	}
 ?>
