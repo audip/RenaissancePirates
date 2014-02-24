@@ -1,3 +1,4 @@
 ~$quest.xlsx
 .DS_Store
 *.sql
+.netrc
