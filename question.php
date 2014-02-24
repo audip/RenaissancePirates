@@ -45,7 +45,7 @@ if(isset($_POST['ans']) && isset($_POST['submit'])){
 	echo '<br/>String Compare Result'.strcmp($ans, $row['ans']);
 	die();*/
 	/*Debugging Module ends here*/
-	$unlocked=35;
+	$unlocked=36;
 	if($rw[0]=== '1')
 	{
 		echo '<strong>Already Answered</strong><br/>';

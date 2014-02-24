@@ -11,7 +11,7 @@
 				color: white;
 				background-color: #e74c3c;
 			}
-			.lightblue{
+			.red{
 				color: #e74c3c;
 				font-size: 20px;
 			}
@@ -49,7 +49,7 @@
 	
 	This is where you are very very close to the <span class="underline">answer</span>!
 	<br/>
-	<span class="lightblue">The_answer_to_this_question_is: itengineerstrulyrock</span><br>
+	<span class="red">The_answer_to_this_question_is: itengineerstrulyrock</span><br>
 	<p class="bold">Created by Aditya Purandare, Krishna Srivastava &amp; Mansi Jain</p>
 
 </body>

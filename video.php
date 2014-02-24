@@ -68,27 +68,24 @@
 		$clue1=mysqli_real_escape_string($con, $_POST['clue1']);
 		$clue2=mysqli_real_escape_string($con, $_POST['clue2']);
 		$clue=strtolower($clue1).strtolower($clue2);
-		//echo $clue;
+		//echo $clue.'abcdef';
 		$username=$_SESSION['username'];
-		$str1="SELECT q34, score, username FROM quizuser WHERE username='$username'";
+		$str1="SELECT q35, score, username FROM quizuser WHERE username='$username'";
 		$res=mysqli_query($con, $str1);
-		if (!$res) {
-  					printf("Error: %s\n", mysqli_error($con));
-    					exit();
-		}
 		$row=mysqli_fetch_assoc($res);
-		if($row['q34']=='0' && $clue=='economicspolitics')
+		//echo $clue.'<br/>'.$score.'<br/>'.$row['q35'];
+		//die();
+		if($row['q35']=='0' && $clue=='economicspolitics')
 		{
 			$score=$row['score']+50;
 			echo 'Correct Answer. Redirecting to Home Page';
-			$q1="UPDATE quizuser SET q34='1', score='$score' WHERE username='$username'";
+			$q1="UPDATE quizuser SET q35='1', score='$score' WHERE username='$username'";
 			//echo $q1;die();
 			mysqli_query($con, $q1);
 			header('refresh:3;home.php');
 		}
 		else{
-			echo '<span class="underline">Incorrect Answer / Already Answered</span>
-			';
+			echo '<span class="underline">Incorrect Answer / Already Answered</span>';
 		}
 	}
 ?>
