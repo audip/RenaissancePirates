@@ -121,7 +121,7 @@ require('fb.php');
 				$q32="UPDATE quizuser SET u10='' WHERE username='$username'";
 				mysqli_query($con, $q32);
 			}
-			header('http://162.251.81.21/quiz/signup.php');
+			header('location:signup.php');
 		}
 
 	}
